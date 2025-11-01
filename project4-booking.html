@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookEasy - Service Booking Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .calendar-day {
+            transition: all 0.3s ease;
+        }
+        .calendar-day:hover {
+            transform: scale(1.05);
+        }
+        .available {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .selected {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .progress-step {
+            transition: all 0.3s ease;
+        }
+        .progress-step.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        input:invalid {
+            border-color: #f56565;
+        }
+        input:valid {
+            border-color: #48bb78;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        BookEasy
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-600 hover:text-purple-600 transition">Services</a>
+                    <a href="#how-it-works" class="text-gray-600 hover:text-purple-600 transition">How It Works</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-purple-600 transition">Pricing</a>
+                    <a href="#" class="text-gray-600 hover:text-purple-600 transition">For Business</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-purple-600 transition">
+                        Sign In
+                    </button>
+                    <button class="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    Book Services <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Instantly</span>
+                </h1>
+                <p class="text-xl text-gray-600">
+                    Find and book appointments with local service providers in seconds
+                </p>
+            </div>
+
+            <!-- Quick Search -->
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-6">
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Service Type</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            <option>Hair Salon</option>
+                            <option>Spa & Massage</option>
+                            <option>Fitness Training</option>
+                            <option>Medical Consultation</option>
+                            <option>Auto Service</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                        <input type="text" placeholder="Enter city or zip" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">&nbsp;</label>
+                        <button onclick="startBooking()" class="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition">
+                            Search Available
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services -->
+    <section id="services" class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Popular Services</h2>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="service-card bg-white rounded-xl p-6 text-center cursor-pointer" onclick="selectService('Hair Salon')">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10m-7 5h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Hair Salon</h3>
+                    <p class="text-gray-600 text-sm">Haircuts, styling & color</p>
+                </div>
+
+                <div class="service-card bg-white rounded-xl p-6 text-center cursor-pointer" onclick="selectService('Spa & Massage')">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Spa & Massage</h3>
+                    <p class="text-gray-600 text-sm">Relaxation & wellness</p>
+                </div>
+
+                <div class="service-card bg-white rounded-xl p-6 text-center cursor-pointer" onclick="selectService('Fitness')">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Fitness Training</h3>
+                    <p class="text-gray-600 text-sm">Personal training & classes</p>
+                </div>
+
+                <div class="service-card bg-white rounded-xl p-6 text-center cursor-pointer" onclick="selectService('Medical')">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 0V9m0 3v3m6-3V9m0 3v3M12 3v6m0 12v-6m9-6h-6M3 12h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Medical</h3>
+                    <p class="text-gray-600 text-sm">Consultations & checkups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Process -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto slide-in">
+                <!-- Progress Bar -->
+                <div class="bg-gray-50 px-8 py-6 border-b">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold">Book Your Appointment</h2>
+                        <button onclick="closeBooking()" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="progress-step w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center" id="step1">
+                                1
+                            </div>
+                            <div class="w-24 h-1 bg-gray-300 mx-2"></div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="progress-step w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center" id="step2">
+                                2
+                            </div>
+                            <div class="w-24 h-1 bg-gray-300 mx-2"></div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="progress-step w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center" id="step3">
+                                3
+                            </div>
+                            <div class="w-24 h-1 bg-gray-300 mx-2"></div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="progress-step w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center" id="step4">
+                                4
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-sm text-gray-600">
+                        <span>Service</span>
+                        <span>Date & Time</span>
+                        <span>Details</span>
+                        <span>Confirm</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Select Service -->
+                <div id="step1Content" class="p-8">
+                    <h3 class="text-xl font-semibold mb-6">Select a Service</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition">
+                            <input type="radio" name="service" value="haircut" class="mr-3">
+                            <span class="font-semibold">Haircut & Style</span>
+                            <span class="text-gray-600 ml-2">$50 • 45 min</span>
+                        </label>
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition">
+                            <input type="radio" name="service" value="color" class="mr-3">
+                            <span class="font-semibold">Hair Color</span>
+                            <span class="text-gray-600 ml-2">$120 • 2 hours</span>
+                        </label>
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition">
+                            <input type="radio" name="service" value="massage" class="mr-3">
+                            <span class="font-semibold">Deep Tissue Massage</span>
+                            <span class="text-gray-600 ml-2">$80 • 1 hour</span>
+                        </label>
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition">
+                            <input type="radio" name="service" value="facial" class="mr-3">
+                            <span class="font-semibold">Facial Treatment</span>
+                            <span class="text-gray-600 ml-2">$90 • 1.5 hours</span>
+                        </label>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4 mt-8">Select Provider</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition text-center">
+                            <input type="radio" name="provider" value="sarah" class="hidden">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Provider" class="w-20 h-20 rounded-full mx-auto mb-2">
+                            <div class="font-semibold">Sarah Johnson</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                            <div class="text-gray-600 text-sm">5 years experience</div>
+                        </label>
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition text-center">
+                            <input type="radio" name="provider" value="mike" class="hidden">
+                            <img src="https://i.pravatar.cc/150?img=3" alt="Provider" class="w-20 h-20 rounded-full mx-auto mb-2">
+                            <div class="font-semibold">Mike Davis</div>
+                            <div class="text-yellow-400 text-sm">★★★★☆</div>
+                            <div class="text-gray-600 text-sm">3 years experience</div>
+                        </label>
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-purple-500 transition text-center">
+                            <input type="radio" name="provider" value="emma" class="hidden">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Provider" class="w-20 h-20 rounded-full mx-auto mb-2">
+                            <div class="font-semibold">Emma Wilson</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                            <div class="text-gray-600 text-sm">7 years experience</div>
+                        </label>
+                    </div>
+
+                    <div class="mt-8 flex justify-end">
+                        <button onclick="nextStep(2)" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+                            Next: Select Date & Time
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Date & Time -->
+                <div id="step2Content" class="p-8 hidden">
+                    <h3 class="text-xl font-semibold mb-6">Select Date & Time</h3>
+                    
+                    <!-- Calendar -->
+                    <div class="mb-8">
+                        <div class="bg-white rounded-lg">
+                            <div class="flex justify-between items-center mb-4">
+                                <button class="p-2 hover:bg-gray-100 rounded">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                </button>
+                                <h4 class="text-lg font-semibold">January 2025</h4>
+                                <button class="p-2 hover:bg-gray-100 rounded">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div class="grid grid-cols-7 gap-2 text-center">
+                                <div class="text-gray-500 text-sm">Sun</div>
+                                <div class="text-gray-500 text-sm">Mon</div>
+                                <div class="text-gray-500 text-sm">Tue</div>
+                                <div class="text-gray-500 text-sm">Wed</div>
+                                <div class="text-gray-500 text-sm">Thu</div>
+                                <div class="text-gray-500 text-sm">Fri</div>
+                                <div class="text-gray-500 text-sm">Sat</div>
+                                
+                                <!-- Calendar Days -->
+                                <div class="calendar-day p-2 text-gray-400">29</div>
+                                <div class="calendar-day p-2 text-gray-400">30</div>
+                                <div class="calendar-day p-2 text-gray-400">31</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">1</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">2</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">3</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">4</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">5</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded bg-purple-600 text-white">6</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">7</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">8</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">9</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">10</div>
+                                <div class="calendar-day p-2 cursor-pointer hover:bg-purple-100 rounded">11</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Slots -->
+                    <h4 class="font-semibold mb-4">Available Time Slots</h4>
+                    <div class="grid grid-cols-4 gap-3">
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition">9:00 AM</button>
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition">9:30 AM</button>
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition">10:00 AM</button>
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition bg-gray-100 text-gray-400" disabled>10:30 AM</button>
+                        <button class="p-3 border-2 border-purple-500 rounded-lg bg-purple-50">11:00 AM</button>
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition">11:30 AM</button>
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition">2:00 PM</button>
+                        <button class="p-3 border-2 border-gray-200 rounded-lg hover:border-purple-500 transition">2:30 PM</button>
+                    </div>
+
+                    <div class="mt-8 flex justify-between">
+                        <button onclick="nextStep(1)" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            Back
+                        </button>
+                        <button onclick="nextStep(3)" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+                            Next: Enter Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Details -->
+                <div id="step3Content" class="p-8 hidden">
+                    <h3 class="text-xl font-semibold mb-6">Your Information</h3>
+                    
+                    <form id="bookingForm" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                <input type="text" required pattern="[A-Za-z ]+" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                <input type="text" required pattern="[A-Za-z ]+" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Special Requests (Optional)</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="reminder" class="mr-2">
+                            <label for="reminder" class="text-sm text-gray-600">Send me appointment reminders via SMS and email</label>
+                        </div>
+                    </form>
+
+                    <div class="mt-8 flex justify-between">
+                        <button onclick="nextStep(2)" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            Back
+                        </button>
+                        <button onclick="validateAndNext()" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+                            Next: Review & Confirm
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Confirmation -->
+                <div id="step4Content" class="p-8 hidden">
+                    <h3 class="text-xl font-semibold mb-6">Review & Confirm</h3>
+                    
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <h4 class="font-semibold mb-4">Appointment Summary</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Service:</span>
+                                <span class="font-medium">Haircut & Style</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Provider:</span>
+                                <span class="font-medium">Sarah Johnson</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Date:</span>
+                                <span class="font-medium">January 6, 2025</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Time:</span>
+                                <span class="font-medium">11:00 AM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Duration:</span>
+                                <span class="font-medium">45 minutes</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Location:</span>
+                                <span class="font-medium">123 Main St, Suite 100</span>
+                            </div>
+                            <div class="border-t pt-3 mt-3">
+                                <div class="flex justify-between text-lg font-semibold">
+                                    <span>Total:</span>
+                                    <span class="text-purple-600">$50.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h4 class="font-semibold text-blue-900 mb-2">Cancellation Policy</h4>
+                        <p class="text-sm text-blue-800">
+                            Free cancellation up to 24 hours before your appointment. Cancellations within 24 hours may incur a fee.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center mb-6">
+                        <input type="checkbox" id="terms" class="mr-2">
+                        <label for="terms" class="text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-purple-600 hover:underline">Terms of Service</a> and <a href="#" class="text-purple-600 hover:underline">Cancellation Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button onclick="nextStep(3)" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            Back
+                        </button>
+                        <button onclick="confirmBooking()" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition">
+                            Confirm Booking
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div id="successContent" class="p-8 text-center hidden">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Booking Confirmed!</h3>
+                    <p class="text-gray-600 mb-6">
+                        Your appointment has been successfully booked. We've sent a confirmation email to your registered email address.
+                    </p>
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6 text-left max-w-md mx-auto">
+                        <h4 class="font-semibold mb-3">Appointment Details</h4>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="text-gray-600">Booking ID:</span> <span class="font-medium">#BK2025010601</span></div>
+                            <div><span class="text-gray-600">Date & Time:</span> <span class="font-medium">Jan 6, 2025 at 11:00 AM</span></div>
+                            <div><span class="text-gray-600">Provider:</span> <span class="font-medium">Sarah Johnson</span></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="closeBooking()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                            Close
+                        </button>
+                        <button class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+                            Add to Calendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 px-4 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="font-semibold mb-2">Search Services</h3>
+                    <p class="text-gray-600 text-sm">Find the perfect service provider in your area</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="font-semibold mb-2">Choose Date & Time</h3>
+                    <p class="text-gray-600 text-sm">Select from available slots that work for you</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="font-semibold mb-2">Book Instantly</h3>
+                    <p class="text-gray-600 text-sm">Confirm your appointment with one click</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        4
+                    </div>
+                    <h3 class="font-semibold mb-2">Show Up & Enjoy</h3>
+                    <p class="text-gray-600 text-sm">Arrive at your appointment and enjoy the service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                    BookEasy
+                </h3>
+                <p class="text-gray-400">Making appointment booking simple and efficient.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Services</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Hair & Beauty</a></li>
+                    <li><a href="#" class="hover:text-white transition">Health & Wellness</a></li>
+                    <li><a href="#" class="hover:text-white transition">Fitness</a></li>
+                    <li><a href="#" class="hover:text-white transition">Professional Services</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Company</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition">For Business</a></li>
+                    <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-4">Download App</h4>
+                <div class="space-y-3">
+                    <button class="bg-black px-4 py-2 rounded-lg border border-gray-700 hover:border-gray-600 transition">
+                        App Store
+                    </button>
+                    <button class="bg-black px-4 py-2 rounded-lg border border-gray-700 hover:border-gray-600 transition">
+                        Google Play
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>© 2025 BookEasy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+
+        function startBooking() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBooking() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            currentStep = 1;
+            resetSteps();
+        }
+
+        function selectService(service) {
+            startBooking();
+        }
+
+        function nextStep(step) {
+            // Hide current step
+            document.getElementById(`step${currentStep}Content`).classList.add('hidden');
+            document.getElementById(`step${currentStep}`).classList.remove('bg-purple-600', 'text-white');
+            document.getElementById(`step${currentStep}`).classList.add('bg-gray-300', 'text-gray-600');
+            
+            // Show next step
+            currentStep = step;
+            document.getElementById(`step${currentStep}Content`).classList.remove('hidden');
+            document.getElementById(`step${currentStep}`).classList.remove('bg-gray-300', 'text-gray-600');
+            document.getElementById(`step${currentStep}`).classList.add('bg-purple-600', 'text-white');
+        }
+
+        function validateAndNext() {
+            const form = document.getElementById('bookingForm');
+            
+            // Check if form is valid
+            if (form.checkValidity()) {
+                nextStep(4);
+            } else {
+                // Show validation messages
+                form.reportValidity();
+            }
+        }
+
+        function confirmBooking() {
+            const termsChecked = document.getElementById('terms').checked;
+            
+            if (!termsChecked) {
+                alert('Please agree to the Terms of Service and Cancellation Policy');
+                return;
+            }
+            
+            // Hide step 4 and show success
+            document.getElementById('step4Content').classList.add('hidden');
+            document.getElementById('successContent').classList.remove('hidden');
+            
+            // Hide progress bar
+            document.querySelector('.bg-gray-50').style.display = 'none';
+        }
+
+        function resetSteps() {
+            // Reset all steps
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`step${i}Content`).classList.add('hidden');
+                document.getElementById(`step${i}`).classList.remove('bg-purple-600', 'text-white');
+                document.getElementById(`step${i}`).classList.add('bg-gray-300', 'text-gray-600');
+            }
+            
+            // Show step 1
+            document.getElementById('step1Content').classList.remove('hidden');
+            document.getElementById('step1').classList.remove('bg-gray-300', 'text-gray-600');
+            document.getElementById('step1').classList.add('bg-purple-600', 'text-white');
+            
+            // Reset success content
+            document.getElementById('successContent').classList.add('hidden');
+            document.querySelector('.bg-gray-50').style.display = 'block';
+        }
+
+        // Calendar day selection
+        document.querySelectorAll('.calendar-day').forEach(day => {
+            day.addEventListener('click', function() {
+                // Remove previous selection
+                document.querySelectorAll('.calendar-day').forEach(d => {
+                    d.classList.remove('bg-purple-600', 'text-white');
+                });
+                // Add selection to clicked day
+                if (!this.classList.contains('text-gray-400')) {
+                    this.classList.add('bg-purple-600', 'text-white');
+                }
+            });
+        });
+
+        // Time slot selection
+        document.querySelectorAll('#step2Content button').forEach(slot => {
+            if (!slot.disabled && !slot.textContent.includes('Back') && !slot.textContent.includes('Next')) {
+                slot.addEventListener('click', function() {
+                    // Remove previous selection
+                    document.querySelectorAll('#step2Content button').forEach(s => {
+                        s.classList.remove('border-purple-500', 'bg-purple-50');
+                        if (!s.disabled && !s.textContent.includes('Back') && !s.textContent.includes('Next')) {
+                            s.classList.add('border-gray-200');
+                        }
+                    });
+                    // Add selection to clicked slot
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('border-purple-500', 'bg-purple-50');
+                });
+            }
+        });
+
+        // Service provider selection visual feedback
+        document.querySelectorAll('input[name="provider"]').forEach(input => {
+            input.addEventListener('change', function() {
+                document.querySelectorAll('input[name="provider"]').forEach(i => {
+                    i.closest('label').classList.remove('border-purple-500', 'bg-purple-50');
+                });
+                this.closest('label').classList.add('border-purple-500', 'bg-purple-50');
+            });
+        });
+
+        // Service selection visual feedback
+        document.querySelectorAll('input[name="service"]').forEach(input => {
+            input.addEventListener('change', function() {
+                document.querySelectorAll('input[name="service"]').forEach(i => {
+                    i.closest('label').classList.remove('border-purple-500', 'bg-purple-50');
+                });
+                this.closest('label').classList.add('border-purple-500', 'bg-purple-50');
+            });
+        });
+    </script>
+</body>
+</html>
