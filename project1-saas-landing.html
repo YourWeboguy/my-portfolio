@@ -1,504 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudSync Pro - Modern SaaS Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .gradient-animation {
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowLaunch • Client Onboarding Automation Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 55%),
+                  radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.16), transparent 60%);
+    }
+    .noise-bg {
+      background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+      background-size: 18px 18px;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        CloudSync Pro
-                    </span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="hover:text-blue-400 transition">Features</a>
-                    <a href="#pricing" class="hover:text-blue-400 transition">Pricing</a>
-                    <a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a>
-                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-                    <button class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full hover:shadow-lg transform hover:scale-105 transition">
-                        Get Started Free
-                    </button>
-                </div>
-                <div class="md:hidden">
-                    <button onclick="toggleMenu()" class="text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden glass">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#features" class="block px-3 py-2 hover:bg-white/10 rounded">Features</a>
-                <a href="#pricing" class="block px-3 py-2 hover:bg-white/10 rounded">Pricing</a>
-                <a href="#testimonials" class="block px-3 py-2 hover:bg-white/10 rounded">Testimonials</a>
-                <a href="#contact" class="block px-3 py-2 hover:bg-white/10 rounded">Contact</a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-slate-950 text-slate-100">
+  <header class="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="index.html" class="text-sm uppercase tracking-[0.3em] text-slate-400 hover:text-white transition">← Back to portfolio</a>
+      <span class="text-sm text-slate-400">Case Study</span>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative">
-        <div class="absolute inset-0 gradient-animation opacity-20"></div>
-        
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20 -top-48 -left-48 float-animation"></div>
-            <div class="absolute w-96 h-96 bg-purple-500 rounded-full filter blur-3xl opacity-20 -bottom-48 -right-48 float-animation" style="animation-delay: 3s"></div>
-            <div class="absolute w-96 h-96 bg-pink-500 rounded-full filter blur-3xl opacity-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 float-animation" style="animation-delay: 1.5s"></div>
-        </div>
-
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            <div class="inline-block px-4 py-2 bg-blue-500/20 rounded-full mb-6 border border-blue-500/50">
-                <span class="text-blue-400">🚀 New: AI-Powered Analytics Now Available</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                Sync Your Business to the
-                <span class="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                    Cloud Revolution
-                </span>
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Transform your workflow with the most powerful cloud synchronization platform. 
-                Real-time collaboration, infinite scalability, enterprise security.
+  <main class="pb-24">
+    <section class="relative overflow-hidden border-b border-slate-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900"></div>
+      <div class="absolute inset-0 noise-bg opacity-40"></div>
+      <div class="relative max-w-5xl mx-auto px-4 py-20">
+        <div class="lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 items-start">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">Client onboarding automation</p>
+            <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">FlowLaunch: Intake to delivery in 21 days</h1>
+            <p class="mt-6 text-lg text-slate-200 max-w-2xl">
+              Built for a collective of fractional COOs that needed to standardize discovery, kickoff, and delivery. We replaced spreadsheets and ad-hoc emails with a governed automation suite that keeps every pod in sync.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <button class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition">
-                    Start Free Trial
-                </button>
-                <button class="px-8 py-4 border border-white/30 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-                    Watch Demo
-                </button>
+            <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">4 weeks</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">18 operators</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">Typeform · HubSpot · ClickUp · Slack</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="mt-12 lg:mt-0">
+            <div class="relative">
+              <div class="absolute -inset-x-6 -inset-y-8 bg-gradient-to-tr from-sky-500/20 via-transparent to-indigo-500/20 blur-3xl"></div>
+              <div class="relative rounded-[28px] border border-slate-800/70 bg-slate-950/60 backdrop-blur-xl p-6 shadow-xl">
+                <div class="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-slate-400">
+                  <span>Journey Map</span>
+                  <span>Preview</span>
+                </div>
+                <div class="relative mt-5 aspect-[4/3] rounded-2xl border border-slate-800 bg-gradient-to-tr from-slate-900 via-slate-950 to-sky-950 grid place-items-center overflow-hidden">
+                  <div class="pointer-events-none absolute inset-0 opacity-40" style="background-image: linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px); background-size: 36px 36px;"></div>
+                  <div class="relative max-w-xs text-center space-y-4 px-8">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">Flow stage</span>
+                    <p class="text-lg font-semibold text-slate-100">Automated kickoff shows real-time SLA and owner assignments for every onboarding lane.</p>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Client intake</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Pod dashboard</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">SLA alerts</span>
+                </div>
+              </div>
             </div>
-
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-                <div>
-                    <div class="text-3xl font-bold text-blue-400">99.9%</div>
-                    <div class="text-gray-400">Uptime SLA</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-purple-400">50M+</div>
-                    <div class="text-gray-400">Active Users</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-pink-400">150+</div>
-                    <div class="text-gray-400">Countries</div>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
+      </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Features That
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        Empower You
-                    </span>
-                </h2>
-                <p class="text-xl text-gray-400">Everything you need to scale your business</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Lightning Fast</h3>
-                    <p class="text-gray-400">Experience blazing fast synchronization with our optimized infrastructure. Upload and access files in milliseconds.</p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Bank-Level Security</h3>
-                    <p class="text-gray-400">Your data is protected with AES-256 encryption, two-factor authentication, and continuous security monitoring.</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">AI-Powered</h3>
-                    <p class="text-gray-400">Smart categorization, automated workflows, and predictive analytics powered by cutting-edge AI technology.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Team Collaboration</h3>
-                    <p class="text-gray-400">Work together seamlessly with real-time editing, comments, and version control for your entire team.</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Smart Insights</h3>
-                    <p class="text-gray-400">Get actionable insights with advanced analytics, custom reports, and data visualization tools.</p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Integrations</h3>
-                    <p class="text-gray-400">Connect with 1000+ apps including Slack, Google Workspace, Microsoft 365, and more.</p>
-                </div>
-            </div>
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">The challenge</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Each onboarding had 40+ manual touchpoints. Notes lived in Airtable, tasks in Asana, and client updates in scattered Slack channels. With six pods handling overlapping clients, the leadership team lacked visibility into status, capacity, and blockers.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The goal: unify intake, qualification, task generation, and communications while preserving the personalized touch that clients expected from a premium operations partner.
+          </p>
         </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 space-y-4 text-sm text-slate-200">
+          <h3 class="text-sm uppercase tracking-[0.3em] text-slate-400">Success snapshot</h3>
+          <ul class="space-y-3">
+            <li>• 63% faster kickoff from signed agreement to active workspace</li>
+            <li>• 42 manual steps reduced to 9 automated checkpoints</li>
+            <li>• Health dashboard adopted by every pod lead within two weeks</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Simple, Transparent
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        Pricing
-                    </span>
-                </h2>
-                <p class="text-xl text-gray-400">Choose the plan that fits your needs</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Starter Plan -->
-                <div class="glass p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-2">Starter</h3>
-                    <p class="text-gray-400 mb-6">Perfect for individuals</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">$9</span>
-                        <span class="text-gray-400">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            100 GB Storage
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            5 Team Members
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Basic Analytics
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 border border-white/30 rounded-full hover:bg-white/10 transition">
-                        Get Started
-                    </button>
-                </div>
-
-                <!-- Pro Plan -->
-                <div class="glass p-8 rounded-2xl border-2 border-blue-500 relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-sm">
-                        Most Popular
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                    <p class="text-gray-400 mb-6">For growing teams</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">$29</span>
-                        <span class="text-gray-400">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            1 TB Storage
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            25 Team Members
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Advanced Analytics
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Priority Support
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full hover:shadow-lg transition">
-                        Get Started
-                    </button>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="glass p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
-                    <p class="text-gray-400 mb-6">For large organizations</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">Custom</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Unlimited Storage
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Unlimited Members
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Custom Integrations
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            24/7 Dedicated Support
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 border border-white/30 rounded-full hover:bg-white/10 transition">
-                        Contact Sales
-                    </button>
-                </div>
-            </div>
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <h2 class="text-2xl font-semibold text-white">Architecture highlights</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 text-sm text-slate-300">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Structured intake &amp; scoring</h3>
+            <p class="mt-3">Typeform responses sync to HubSpot with property validation, dedupe checks, and an automated scoring model that flags high-complexity accounts for senior review.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Auto-generated task packs</h3>
+            <p class="mt-3">Make scenarios orchestrate ClickUp templates, due dates, and dependencies based on services purchased, ensuring each pod follows the same playbook.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Slack copilots</h3>
+            <p class="mt-3">A shared Slack channel posts milestone updates, escalations, and approval requests with buttons to reassign or snooze tasks without leaving the thread.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Observability &amp; QA</h3>
+            <p class="mt-3">Error handling logs in a Notion control tower, while nightly QA runs verify data syncs and notify the stewardship team when anything drifts.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Loved by
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        Teams Worldwide
-                    </span>
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-6 rounded-2xl">
-                    <div class="flex items-center mb-4">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-bold">Sarah Johnson</div>
-                            <div class="text-gray-400 text-sm">CEO at TechStart</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        "CloudSync Pro transformed our workflow completely. The real-time collaboration features saved us countless hours."
-                    </p>
-                    <div class="flex mt-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="glass p-6 rounded-2xl">
-                    <div class="flex items-center mb-4">
-                        <img src="https://i.pravatar.cc/150?img=2" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-bold">Michael Chen</div>
-                            <div class="text-gray-400 text-sm">CTO at DataFlow</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        "The security features are top-notch. We can finally sync sensitive data without worrying about breaches."
-                    </p>
-                    <div class="flex mt-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="glass p-6 rounded-2xl">
-                    <div class="flex items-center mb-4">
-                        <img src="https://i.pravatar.cc/150?img=3" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-bold">Emily Davis</div>
-                            <div class="text-gray-400 text-sm">Product Manager</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        "Best investment we made this year. The AI features alone increased our productivity by 40%."
-                    </p>
-                    <div class="flex mt-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
-                </div>
-            </div>
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-7 text-sm text-slate-300 space-y-4">
+          <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Timeline &amp; ceremonies</h2>
+          <ul class="space-y-3">
+            <li><span class="text-slate-200">Week 1:</span> Discovery interviews, workflow mapping, success metrics alignment.</li>
+            <li><span class="text-slate-200">Week 2:</span> Architecture design, sandbox builds, and approval checkpoints.</li>
+            <li><span class="text-slate-200">Week 3:</span> Automation development, QA with real data, and fail-safe scripting.</li>
+            <li><span class="text-slate-200">Week 4:</span> Enablement, handover docs, and first 30-day optimization backlog.</li>
+          </ul>
         </div>
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">Results that stuck</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Pods now have a shared view of every onboarding, with alerts that surface when deliverables lag or approvals are overdue. Leadership receives a Monday digest summarizing launch velocity, blockers, and forecasted capacity needs.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The automation suite freed 20+ operator hours per week, reduced onboarding churn to zero for three consecutive quarters, and gave the client confidence to launch a productized service tier.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Transform Your
-                <span class="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                    Business Operations?
-                </span>
-            </h2>
-            <p class="text-xl text-gray-300 mb-8">
-                Join thousands of companies already using CloudSync Pro
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition">
-                    Start Your Free Trial
-                </button>
-                <button class="px-8 py-4 border border-white/30 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-                    Schedule Demo
-                </button>
-            </div>
-        </div>
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 rounded-3xl border border-slate-800 bg-slate-900/60 p-10 text-center">
+        <h2 class="text-3xl font-semibold text-white">Ready to orchestrate your onboarding?</h2>
+        <p class="mt-4 text-slate-300">I’ll audit your current flow, identify quick wins, and craft the automation roadmap your operators need.</p>
+        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold shadow-lg hover:shadow-xl transition">Start the conversation</a>
+      </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="py-12 px-4 border-t border-white/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4">
-                        CloudSync Pro
-                    </h3>
-                    <p class="text-gray-400">
-                        The future of cloud synchronization
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Product</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Features</a></li>
-                        <li><a href="#" class="hover:text-white transition">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white transition">Security</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">About</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Support</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition">Status</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center pt-8 border-t border-white/10">
-                <p class="text-gray-400">© 2025 CloudSync Pro. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Parallax effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.gradient-animation');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-    </script>
+  </main>
 </body>
 </html>

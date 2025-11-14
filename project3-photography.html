@@ -1,576 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena Martinez - Photography Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        .image-hover {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .image-hover:hover {
-            transform: scale(1.05);
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1;
-        }
-        
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-        
-        .gallery-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-            z-index: 2;
-        }
-        
-        .gallery-item:hover .gallery-info {
-            transform: translateY(0);
-        }
-        
-        .masonry {
-            column-count: 3;
-            column-gap: 1rem;
-        }
-        
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1rem;
-        }
-        
-        @media (max-width: 768px) {
-            .masonry {
-                column-count: 2;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .masonry {
-                column-count: 1;
-            }
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: 2px solid;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        
-        @keyframes blink {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RelayDesk • Support Automation Program</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), transparent 55%),
+                  radial-gradient(circle at 75% 20%, rgba(14, 165, 233, 0.15), transparent 60%);
+    }
+    .noise-bg {
+      background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+      background-size: 18px 18px;
+    }
+  </style>
 </head>
-<body class="bg-black text-white">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="text-2xl font-light tracking-widest">
-                    ELENA<span class="text-gray-500">MARTINEZ</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="hover:text-gray-400 transition">Home</a>
-                    <a href="#portfolio" class="hover:text-gray-400 transition">Portfolio</a>
-                    <a href="#about" class="hover:text-gray-400 transition">About</a>
-                    <a href="#services" class="hover:text-gray-400 transition">Services</a>
-                    <a href="#contact" class="hover:text-gray-400 transition">Contact</a>
-                </div>
-                
-                <button onclick="toggleMenu()" class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-black/95">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 hover:bg-white/10">Home</a>
-                <a href="#portfolio" class="block px-3 py-2 hover:bg-white/10">Portfolio</a>
-                <a href="#about" class="block px-3 py-2 hover:bg-white/10">About</a>
-                <a href="#services" class="block px-3 py-2 hover:bg-white/10">Services</a>
-                <a href="#contact" class="block px-3 py-2 hover:bg-white/10">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920" alt="Hero" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/50"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4 fade-in">
-            <h1 class="text-5xl md:text-7xl font-thin tracking-wider mb-4">
-                CAPTURING <span class="font-normal">MOMENTS</span>
-            </h1>
-            <p class="text-xl md:text-2xl font-light mb-8 typewriter inline-block">
-                Through the lens of creativity
-            </p>
-            <div class="flex gap-4 justify-center">
-                <button onclick="scrollToSection('portfolio')" class="px-8 py-3 border border-white hover:bg-white hover:text-black transition">
-                    View Portfolio
-                </button>
-                <button onclick="scrollToSection('contact')" class="px-8 py-3 bg-white text-black hover:bg-gray-200 transition">
-                    Get in Touch
-                </button>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Portfolio Categories -->
-    <section id="portfolio" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-thin text-center mb-4">
-                MY <span class="font-normal">PORTFOLIO</span>
-            </h2>
-            <p class="text-center text-gray-400 mb-12">A collection of my finest work</p>
-            
-            <!-- Category Filters -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button onclick="filterGallery('all')" class="px-6 py-2 border border-gray-600 hover:border-white hover:bg-white hover:text-black transition filter-btn active">
-                    All
-                </button>
-                <button onclick="filterGallery('portrait')" class="px-6 py-2 border border-gray-600 hover:border-white hover:bg-white hover:text-black transition filter-btn">
-                    Portrait
-                </button>
-                <button onclick="filterGallery('landscape')" class="px-6 py-2 border border-gray-600 hover:border-white hover:bg-white hover:text-black transition filter-btn">
-                    Landscape
-                </button>
-                <button onclick="filterGallery('wedding')" class="px-6 py-2 border border-gray-600 hover:border-white hover:bg-white hover:text-black transition filter-btn">
-                    Wedding
-                </button>
-                <button onclick="filterGallery('street')" class="px-6 py-2 border border-gray-600 hover:border-white hover:bg-white hover:text-black transition filter-btn">
-                    Street
-                </button>
-            </div>
-            
-            <!-- Gallery Grid -->
-            <div class="masonry" id="gallery">
-                <!-- Portrait -->
-                <div class="masonry-item gallery-item" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600" alt="Portrait" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Natural Beauty</h3>
-                        <p class="text-sm">Portrait Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Landscape -->
-                <div class="masonry-item gallery-item" data-category="landscape">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=900" alt="Landscape" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Mountain Peaks</h3>
-                        <p class="text-sm">Landscape Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Wedding -->
-                <div class="masonry-item gallery-item" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Wedding" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Forever Love</h3>
-                        <p class="text-sm">Wedding Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Street -->
-                <div class="masonry-item gallery-item" data-category="street">
-                    <img src="https://images.unsplash.com/photo-1514565131-fce0801e3485?w=600&h=400" alt="Street" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Urban Life</h3>
-                        <p class="text-sm">Street Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Portrait -->
-                <div class="masonry-item gallery-item" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=800" alt="Portrait" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Emotions</h3>
-                        <p class="text-sm">Portrait Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Landscape -->
-                <div class="masonry-item gallery-item" data-category="landscape">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600" alt="Landscape" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Serenity</h3>
-                        <p class="text-sm">Landscape Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Wedding -->
-                <div class="masonry-item gallery-item" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&h=900" alt="Wedding" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Perfect Day</h3>
-                        <p class="text-sm">Wedding Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Street -->
-                <div class="masonry-item gallery-item" data-category="street">
-                    <img src="https://images.unsplash.com/photo-1533134242066-d6b27ea21f4f?w=600" alt="Street" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">City Lights</h3>
-                        <p class="text-sm">Street Photography</p>
-                    </div>
-                </div>
-                
-                <!-- Portrait -->
-                <div class="masonry-item gallery-item" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=600" alt="Portrait" class="w-full rounded-lg">
-                    <div class="gallery-info text-white">
-                        <h3 class="text-xl font-semibold">Fashion Portrait</h3>
-                        <p class="text-sm">Portrait Photography</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-4 bg-gray-900">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <img src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?w=600" alt="Photographer" class="rounded-lg shadow-2xl">
-            </div>
-            <div>
-                <h2 class="text-4xl font-thin mb-6">
-                    ABOUT <span class="font-normal">ELENA</span>
-                </h2>
-                <p class="text-gray-300 mb-4">
-                    With over 10 years of experience capturing life's most precious moments, I specialize in creating timeless images that tell your unique story.
-                </p>
-                <p class="text-gray-300 mb-6">
-                    My passion for photography began in the streets of Barcelona, where I discovered the beauty in everyday moments. Today, I bring that same eye for detail and emotion to every shoot, whether it's an intimate portrait session or a grand wedding celebration.
-                </p>
-                
-                <div class="space-y-4 mb-8">
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span>Portrait Photography</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="bg-white h-2 rounded-full" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span>Wedding Photography</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="bg-white h-2 rounded-full" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span>Photo Editing</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="bg-white h-2 rounded-full" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="px-8 py-3 border border-white hover:bg-white hover:text-black transition">
-                    Download CV
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-thin text-center mb-4">
-                MY <span class="font-normal">SERVICES</span>
-            </h2>
-            <p class="text-center text-gray-400 mb-12">Professional photography services tailored to your needs</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="text-center group">
-                    <div class="relative overflow-hidden rounded-lg mb-6">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300" alt="Portrait" class="w-full image-hover">
-                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white text-xl">Learn More</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-light mb-3">Portrait Sessions</h3>
-                    <p class="text-gray-400 mb-4">Professional portraits that capture your personality and style</p>
-                    <p class="text-3xl font-light">$299</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="text-center group">
-                    <div class="relative overflow-hidden rounded-lg mb-6">
-                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&h=300" alt="Wedding" class="w-full image-hover">
-                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white text-xl">Learn More</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-light mb-3">Wedding Photography</h3>
-                    <p class="text-gray-400 mb-4">Complete coverage of your special day with storytelling approach</p>
-                    <p class="text-3xl font-light">$1999</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="text-center group">
-                    <div class="relative overflow-hidden rounded-lg mb-6">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=300" alt="Event" class="w-full image-hover">
-                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white text-xl">Learn More</span>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-light mb-3">Event Coverage</h3>
-                    <p class="text-gray-400 mb-4">Professional coverage for corporate and private events</p>
-                    <p class="text-3xl font-light">$599</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 px-4 bg-gray-900">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-thin text-center mb-12">
-                CLIENT <span class="font-normal">TESTIMONIALS</span>
-            </h2>
-            
-            <div class="space-y-8">
-                <div class="text-center">
-                    <img src="https://i.pravatar.cc/150?img=1" alt="Client" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p class="text-xl font-light italic mb-4">
-                        "Elena captured our wedding day perfectly. Every photo tells a story and brings back the emotions of that special day."
-                    </p>
-                    <p class="font-semibold">Sarah & Michael Johnson</p>
-                    <p class="text-gray-400">Wedding Photography</p>
-                </div>
-                
-                <div class="text-center">
-                    <img src="https://i.pravatar.cc/150?img=2" alt="Client" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <p class="text-xl font-light italic mb-4">
-                        "Professional, creative, and a joy to work with. Elena's portraits exceeded all my expectations."
-                    </p>
-                    <p class="font-semibold">David Chen</p>
-                    <p class="text-gray-400">Portrait Session</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-thin text-center mb-4">
-                GET IN <span class="font-normal">TOUCH</span>
-            </h2>
-            <p class="text-center text-gray-400 mb-12">Let's create something beautiful together</p>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <form class="space-y-4">
-                        <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-transparent border border-gray-600 focus:border-white outline-none transition">
-                        <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-transparent border border-gray-600 focus:border-white outline-none transition">
-                        <select class="w-full px-4 py-3 bg-black border border-gray-600 focus:border-white outline-none transition">
-                            <option>Select Service</option>
-                            <option>Portrait Session</option>
-                            <option>Wedding Photography</option>
-                            <option>Event Coverage</option>
-                            <option>Other</option>
-                        </select>
-                        <textarea rows="5" placeholder="Your Message" class="w-full px-4 py-3 bg-transparent border border-gray-600 focus:border-white outline-none transition"></textarea>
-                        <button type="submit" class="w-full py-3 bg-white text-black hover:bg-gray-200 transition font-semibold">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-                
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Studio Location</h3>
-                        <p class="text-gray-400">123 Creative Street<br>Barcelona, Spain 08001</p>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Contact Info</h3>
-                        <p class="text-gray-400">
-                            Phone: +34 123 456 789<br>
-                            Email: hello@elenamartinez.com
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Follow Me</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-white transition">
-                                <span class="text-sm">IG</span>
-                            </a>
-                            <a href="#" class="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-white transition">
-                                <span class="text-sm">FB</span>
-                            </a>
-                            <a href="#" class="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-white transition">
-                                <span class="text-sm">TW</span>
-                            </a>
-                            <a href="#" class="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center hover:border-white transition">
-                                <span class="text-sm">BE</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 px-4 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-gray-400">© 2025 Elena Martinez Photography. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center">
-        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl">&times;</button>
-        <img id="lightboxImage" src="" alt="" class="max-w-full max-h-full">
+<body class="bg-slate-950 text-slate-100">
+  <header class="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="index.html" class="text-sm uppercase tracking-[0.3em] text-slate-400 hover:text-white transition">← Back to portfolio</a>
+      <span class="text-sm text-slate-400">Case Study</span>
     </div>
+  </header>
 
-    <script>
-        // Toggle mobile menu
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
+  <main class="pb-24">
+    <section class="relative overflow-hidden border-b border-slate-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900"></div>
+      <div class="absolute inset-0 noise-bg opacity-40"></div>
+      <div class="relative max-w-5xl mx-auto px-4 py-20">
+        <div class="lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 items-start">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-emerald-300">Support automation</p>
+            <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">RelayDesk: AI triage for customer success pods</h1>
+            <p class="mt-6 text-lg text-slate-200 max-w-2xl">
+              A SaaS support org needed to tame a noisy HelpScout queue across three time zones. We introduced intelligent routing, macro recommendations, and executive dashboards that highlight churn risk before tickets escalate.
+            </p>
+            <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">5 weeks</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">28 specialists</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">HelpScout · Airtable · OpenAI · Slack</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="mt-12 lg:mt-0">
+            <div class="relative">
+              <div class="absolute -inset-x-6 -inset-y-8 bg-gradient-to-tr from-emerald-400/25 via-transparent to-sky-400/20 blur-3xl"></div>
+              <div class="relative rounded-[28px] border border-slate-800/70 bg-slate-950/60 backdrop-blur-xl p-6 shadow-xl">
+                <div class="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-slate-400">
+                  <span>Support Hub</span>
+                  <span>Preview</span>
+                </div>
+                <div class="relative mt-5 aspect-[4/3] rounded-2xl border border-slate-800 bg-gradient-to-tr from-slate-900 via-slate-950 to-emerald-950 grid place-items-center overflow-hidden">
+                  <div class="pointer-events-none absolute inset-0 opacity-35" style="background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px); background-size: 34px 34px;"></div>
+                  <div class="relative max-w-xs text-center space-y-4 px-8">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">Live queue</span>
+                    <p class="text-lg font-semibold text-slate-100">AI triage board showing SLA countdowns, owner shifts, and churn flags that update every five minutes.</p>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Macros</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Routing</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Alerts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Smooth scroll
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">The challenge</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Tickets were routed manually, SLAs slipped on weekends, and leadership had no insight into issue themes. The team wanted guardrails that kept humans in the loop while removing repetitive triage work.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The mission: reduce first-response times, capture richer data on every conversation, and keep the team confident about AI assistance.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 space-y-4 text-sm text-slate-200">
+          <h3 class="text-sm uppercase tracking-[0.3em] text-slate-400">Success snapshot</h3>
+          <ul class="space-y-3">
+            <li>• 58% faster first response and 39% faster resolution</li>
+            <li>• 72% of inbound tickets handled with AI-suggested macros</li>
+            <li>• CSAT lifted from 4.2 to 4.8 within the first quarter</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        // Filter gallery
-        function filterGallery(category) {
-            const items = document.querySelectorAll('.masonry-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('bg-white', 'text-black'));
-            event.target.classList.add('bg-white', 'text-black');
-            
-            // Filter items
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <h2 class="text-2xl font-semibold text-white">Automation pillars</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 text-sm text-slate-300">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Smart routing matrix</h3>
+            <p class="mt-3">Airtable houses pod availability and expertise. Make flows assign tickets based on load, priority, and language.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">AI macro assistant</h3>
+            <p class="mt-3">OpenAI analyzes context, suggests macros, and drafts human-ready replies. Agents approve with one click.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Health score dashboards</h3>
+            <p class="mt-3">Airtable + Retool dashboards highlight volume spikes, backlog risk, and accounts requiring executive follow-up.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Knowledge loop</h3>
+            <p class="mt-3">Closed tickets with high effort automatically trigger a Scribe capture and Slab documentation request.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        // Lightbox functionality
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const img = this.querySelector('img');
-                document.getElementById('lightboxImage').src = img.src;
-                document.getElementById('lightbox').classList.remove('hidden');
-            });
-        });
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-7 text-sm text-slate-300 space-y-4">
+          <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Operational rhythm</h2>
+          <ul class="space-y-3">
+            <li><span class="text-slate-200">Week 1:</span> Service blueprinting, ticket taxonomy design, and AI risk review.</li>
+            <li><span class="text-slate-200">Week 2:</span> Routing automations, data migrations, and QA safety checks.</li>
+            <li><span class="text-slate-200">Week 3:</span> Macro assistant rollout with shadow mode and human approval loop.</li>
+            <li><span class="text-slate-200">Weeks 4-5:</span> Dashboard launch, training cohorts, and leadership reporting cadences.</li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">Outcomes</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Agents now start each shift with a live queue prioritized by risk. Leadership sees emerging themes and high-effort accounts in a single view, while AI suggestions keep quality consistent without replacing judgment.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The support org now runs a bi-weekly optimization backlog reviewing automations, macros, and documentation to ensure the system keeps evolving with customer needs.
+          </p>
+        </div>
+      </div>
+    </section>
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.add('hidden');
-        }
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-black');
-            } else {
-                navbar.classList.remove('bg-black');
-            }
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    // Close mobile menu if open
-                    document.getElementById('mobileMenu').classList.add('hidden');
-                }
-            });
-        });
-
-        // Parallax effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('#home img');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-    </script>
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 rounded-3xl border border-slate-800 bg-slate-900/60 p-10 text-center">
+        <h2 class="text-3xl font-semibold text-white">Want a calmer support queue?</h2>
+        <p class="mt-4 text-slate-300">Let’s co-design automations that respect your team’s expertise.</p>
+        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold shadow-lg hover:shadow-xl transition">Schedule a discovery call</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

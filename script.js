@@ -1,4 +1,4 @@
-document.querySelector("form").addEventListener("submit", function (e) {
+document.querySelector("form")?.addEventListener("submit", function (e) {
   e.preventDefault();
-  alert("Message sent! (Simulated)");
+  alert("Thanks! I'll review your workflow details and respond within one business day. (Simulated)");
 });

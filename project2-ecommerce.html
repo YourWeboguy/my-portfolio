@@ -1,703 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Premium Electronics</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .product-card {
-            transition: all 0.3s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .cart-badge {
-            animation: bounce 0.5s;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        .filter-active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RevBeam • Unified RevOps CRM Workspace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.14), transparent 55%),
+                  radial-gradient(circle at 70% 25%, rgba(99, 102, 241, 0.16), transparent 60%);
+    }
+    .noise-bg {
+      background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+      background-size: 18px 18px;
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold text-gray-800">
-                        Tech<span class="text-purple-600">Store</span>
-                    </span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="text-gray-600 hover:text-purple-600 transition">Home</a>
-                    <a href="#products" class="text-gray-600 hover:text-purple-600 transition">Products</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 transition">Deals</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 transition">About</a>
-                </div>
+<body class="bg-slate-950 text-slate-100">
+  <header class="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="index.html" class="text-sm uppercase tracking-[0.3em] text-slate-400 hover:text-white transition">← Back to portfolio</a>
+      <span class="text-sm text-slate-400">Case Study</span>
+    </div>
+  </header>
 
-                <div class="flex items-center space-x-4">
-                    <!-- Search -->
-                    <div class="relative hidden md:block">
-                        <input type="text" 
-                               id="searchInput"
-                               placeholder="Search products..." 
-                               class="w-64 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-purple-500"
-                               onkeyup="searchProducts()">
-                        <svg class="absolute right-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    
-                    <!-- Cart -->
-                    <button onclick="toggleCart()" class="relative">
-                        <svg class="w-6 h-6 text-gray-600 hover:text-purple-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                        <span id="cartCount" class="absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </button>
-
-                    <!-- User -->
-                    <button class="text-gray-600 hover:text-purple-600 transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </button>
+  <main class="pb-24">
+    <section class="relative overflow-hidden border-b border-slate-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900"></div>
+      <div class="absolute inset-0 noise-bg opacity-40"></div>
+      <div class="relative max-w-5xl mx-auto px-4 py-20">
+        <div class="lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 items-start">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-indigo-300">RevOps CRM transformation</p>
+            <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">RevBeam: A single source of revenue truth</h1>
+            <p class="mt-6 text-lg text-slate-200 max-w-2xl">
+              A hybrid outbound/inbound sales team juggled five disconnected tools with no shared metrics. We consolidated everything into HubSpot, automated commissions, and surfaced a leadership dashboard that finally matched finance’s numbers.
+            </p>
+            <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">6 weeks</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">22 sellers</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">HubSpot · Aircall · Chargebee · Notion</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="mt-12 lg:mt-0">
+            <div class="relative">
+              <div class="absolute -inset-x-6 -inset-y-8 bg-gradient-to-tr from-cyan-400/20 via-transparent to-indigo-500/20 blur-3xl"></div>
+              <div class="relative rounded-[28px] border border-slate-800/70 bg-slate-950/60 backdrop-blur-xl p-6 shadow-xl">
+                <div class="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-slate-400">
+                  <span>Revenue Hub</span>
+                  <span>Preview</span>
                 </div>
+                <div class="relative mt-5 aspect-[4/3] rounded-2xl border border-slate-800 bg-gradient-to-tr from-slate-900 via-slate-950 to-indigo-950 grid place-items-center overflow-hidden">
+                  <div class="pointer-events-none absolute inset-0 opacity-35" style="background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px); background-size: 34px 34px;"></div>
+                  <div class="relative max-w-xs text-center space-y-4 px-8">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">Pipeline view</span>
+                    <p class="text-lg font-semibold text-slate-100">Dynamic revenue dashboard layering quota pacing, renewal health, and commission accrual.</p>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Playbooks</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">MRR trends</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Rep scorecards</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Banner -->
-    <section class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    Black Friday Mega Sale
-                </h1>
-                <p class="text-xl mb-8">Up to 50% off on premium electronics</p>
-                <button class="px-8 py-3 bg-white text-purple-600 rounded-full font-semibold hover:bg-gray-100 transition">
-                    Shop Now
-                </button>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            
-            <!-- Sidebar Filters -->
-            <aside class="lg:w-64">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-bold mb-4">Filters</h3>
-                    
-                    <!-- Categories -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold mb-3">Categories</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="laptop">
-                                <span>Laptops</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="phone">
-                                <span>Phones</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="headphones">
-                                <span>Headphones</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="watch">
-                                <span>Smart Watches</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Price Range -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold mb-3">Price Range</h4>
-                        <input type="range" id="priceRange" min="0" max="2000" value="2000" class="w-full" onchange="filterProducts()">
-                        <div class="flex justify-between text-sm text-gray-600 mt-2">
-                            <span>$0</span>
-                            <span id="priceValue">$2000</span>
-                        </div>
-                    </div>
-
-                    <!-- Brands -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold mb-3">Brands</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="Apple">
-                                <span>Apple</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="Samsung">
-                                <span>Samsung</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="Sony">
-                                <span>Sony</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="mr-2" onchange="filterProducts()" value="Dell">
-                                <span>Dell</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Rating -->
-                    <div class="mb-6">
-                        <h4 class="font-semibold mb-3">Rating</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="radio" name="rating" class="mr-2" onchange="filterProducts()" value="4">
-                                <span class="text-yellow-400">★★★★☆ & up</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="rating" class="mr-2" onchange="filterProducts()" value="3">
-                                <span class="text-yellow-400">★★★☆☆ & up</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <button onclick="resetFilters()" class="w-full py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
-                        Reset Filters
-                    </button>
-                </div>
-            </aside>
-
-            <!-- Products Grid -->
-            <main class="flex-1" id="products">
-                <!-- Sorting Bar -->
-                <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-                    <div class="flex justify-between items-center">
-                        <p class="text-gray-600">
-                            Showing <span id="productCount">12</span> products
-                        </p>
-                        <select id="sortSelect" onchange="sortProducts()" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
-                            <option value="featured">Featured</option>
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                            <option value="rating">Highest Rated</option>
-                            <option value="name">Name: A-Z</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Products Grid -->
-                <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Products will be inserted here by JavaScript -->
-                </div>
-
-                <!-- Load More -->
-                <div class="text-center mt-8">
-                    <button onclick="loadMoreProducts()" class="px-8 py-3 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition">
-                        Load More Products
-                    </button>
-                </div>
-            </main>
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">The challenge</h2>
+          <p class="text-slate-300 leading-relaxed">
+            SDRs worked out of spreadsheets, AEs ran their own Airtable boards, and RevOps stitched numbers together in Looker every Friday. Commission disputes were common and churn signals went unnoticed until renewals were at risk.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            We set out to create a single workspace that connected pipeline, product usage, billing, and renewal health so leadership could coach proactively.
+          </p>
         </div>
-    </div>
-
-    <!-- Cart Sidebar -->
-    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-xl transform translate-x-full transition-transform duration-300 z-50">
-        <div class="p-6 border-b">
-            <div class="flex justify-between items-center">
-                <h2 class="text-2xl font-bold">Shopping Cart</h2>
-                <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 space-y-4 text-sm text-slate-200">
+          <h3 class="text-sm uppercase tracking-[0.3em] text-slate-400">Success snapshot</h3>
+          <ul class="space-y-3">
+            <li>• Four data sources unified with near real-time syncs</li>
+            <li>• 4× improvement in forecasting accuracy</li>
+            <li>• Commission reconciliation completed in 90 minutes vs. two days</li>
+          </ul>
         </div>
-        
-        <div id="cartItems" class="flex-1 overflow-y-auto p-6">
-            <!-- Cart items will be inserted here -->
-            <p class="text-gray-500 text-center">Your cart is empty</p>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <h2 class="text-2xl font-semibold text-white">What we built</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 text-sm text-slate-300">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Lifecycle blueprint</h3>
+            <p class="mt-3">Redesigned HubSpot pipelines with clear lifecycle stages, required fields, and stage exit criteria to clean up reporting.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Usage-driven alerts</h3>
+            <p class="mt-3">Chargebee MRR movements and product usage events stream into HubSpot custom objects, driving churn and expansion playbooks.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Commission automation</h3>
+            <p class="mt-3">A Notion control center calculates payouts by role, applies accelerators, and syncs approvals to finance in Slack.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Leadership dashboards</h3>
+            <p class="mt-3">Net-new, expansion, and churn forecasts rendered in HubSpot + Looker Studio with drill-down by pod, industry, and ACV.</p>
+          </article>
         </div>
-        
-        <div class="border-t p-6">
-            <div class="flex justify-between mb-4">
-                <span class="text-lg font-semibold">Total:</span>
-                <span id="cartTotal" class="text-2xl font-bold text-purple-600">$0.00</span>
-            </div>
-            <button class="w-full py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition">
-                Checkout
-            </button>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-7 text-sm text-slate-300 space-y-4">
+          <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Timeline &amp; enablement</h2>
+          <ul class="space-y-3">
+            <li><span class="text-slate-200">Weeks 1-2:</span> Process audit, data cleanup, and architecture sign-off.</li>
+            <li><span class="text-slate-200">Week 3:</span> Pipeline migration, integration wiring, and QA scenarios.</li>
+            <li><span class="text-slate-200">Week 4:</span> Dashboard design with RevOps + leadership workshops.</li>
+            <li><span class="text-slate-200">Weeks 5-6:</span> Commission automation, training library, and go-live shadowing.</li>
+          </ul>
         </div>
-    </div>
-
-    <!-- Product Modal -->
-    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
-        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <button onclick="closeModal()" class="float-right text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-                <div id="modalContent">
-                    <!-- Product details will be inserted here -->
-                </div>
-            </div>
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">Outcomes</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Sellers now work from a single HubSpot view with contextual product data. Weekly forecast meetings focus on coaching, not reconciling numbers. Finance receives approved commissions automatically, and leadership trusts the dashboard to plan hiring.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The client now reviews pipeline health every Monday, churn risk alerts fire within 30 minutes of a usage dip, and the RevOps team reclaimed ten hours per week previously spent on manual reporting.
+          </p>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <script>
-        // Products Data
-        const products = [
-            {
-                id: 1,
-                name: "MacBook Pro 16\"",
-                category: "laptop",
-                brand: "Apple",
-                price: 1999,
-                originalPrice: 2499,
-                rating: 4.8,
-                image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-                description: "Powerful laptop with M1 Pro chip",
-                inStock: true,
-                discount: 20
-            },
-            {
-                id: 2,
-                name: "iPhone 14 Pro",
-                category: "phone",
-                brand: "Apple",
-                price: 999,
-                originalPrice: 1199,
-                rating: 4.9,
-                image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?w=400",
-                description: "Latest iPhone with Dynamic Island",
-                inStock: true,
-                discount: 17
-            },
-            {
-                id: 3,
-                name: "Sony WH-1000XM5",
-                category: "headphones",
-                brand: "Sony",
-                price: 349,
-                originalPrice: 399,
-                rating: 4.7,
-                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
-                description: "Premium noise-canceling headphones",
-                inStock: true,
-                discount: 13
-            },
-            {
-                id: 4,
-                name: "Samsung Galaxy S23",
-                category: "phone",
-                brand: "Samsung",
-                price: 799,
-                originalPrice: 999,
-                rating: 4.6,
-                image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400",
-                description: "Flagship Android phone",
-                inStock: true,
-                discount: 20
-            },
-            {
-                id: 5,
-                name: "Apple Watch Series 8",
-                category: "watch",
-                brand: "Apple",
-                price: 399,
-                originalPrice: 499,
-                rating: 4.5,
-                image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=400",
-                description: "Advanced health tracking smartwatch",
-                inStock: true,
-                discount: 20
-            },
-            {
-                id: 6,
-                name: "Dell XPS 13",
-                category: "laptop",
-                brand: "Dell",
-                price: 1299,
-                originalPrice: 1599,
-                rating: 4.4,
-                image: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=400",
-                description: "Ultra-thin Windows laptop",
-                inStock: true,
-                discount: 19
-            },
-            {
-                id: 7,
-                name: "AirPods Pro",
-                category: "headphones",
-                brand: "Apple",
-                price: 199,
-                originalPrice: 249,
-                rating: 4.6,
-                image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400",
-                description: "Wireless earbuds with ANC",
-                inStock: true,
-                discount: 20
-            },
-            {
-                id: 8,
-                name: "Samsung Galaxy Watch",
-                category: "watch",
-                brand: "Samsung",
-                price: 279,
-                originalPrice: 329,
-                rating: 4.3,
-                image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400",
-                description: "Android smartwatch with rotating bezel",
-                inStock: true,
-                discount: 15
-            },
-            {
-                id: 9,
-                name: "iPad Pro 12.9\"",
-                category: "laptop",
-                brand: "Apple",
-                price: 1099,
-                originalPrice: 1299,
-                rating: 4.7,
-                image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-                description: "Powerful tablet with M2 chip",
-                inStock: true,
-                discount: 15
-            },
-            {
-                id: 10,
-                name: "Sony PlayStation 5",
-                category: "laptop",
-                brand: "Sony",
-                price: 499,
-                originalPrice: 499,
-                rating: 4.9,
-                image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400",
-                description: "Next-gen gaming console",
-                inStock: false,
-                discount: 0
-            },
-            {
-                id: 11,
-                name: "Samsung Galaxy Buds",
-                category: "headphones",
-                brand: "Samsung",
-                price: 149,
-                originalPrice: 179,
-                rating: 4.2,
-                image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400",
-                description: "Wireless earbuds for Android",
-                inStock: true,
-                discount: 17
-            },
-            {
-                id: 12,
-                name: "Dell Gaming Monitor",
-                category: "laptop",
-                brand: "Dell",
-                price: 599,
-                originalPrice: 799,
-                rating: 4.6,
-                image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400",
-                description: "27\" 4K gaming monitor",
-                inStock: true,
-                discount: 25
-            }
-        ];
-
-        let cart = [];
-        let filteredProducts = [...products];
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts(filteredProducts);
-            updatePriceDisplay();
-        });
-
-        // Render products
-        function renderProducts(productsToRender) {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = productsToRender.map(product => `
-                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
-                        ${product.discount > 0 ? `
-                            <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm">
-                                -${product.discount}%
-                            </span>
-                        ` : ''}
-                        ${!product.inStock ? `
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                                <span class="bg-white text-black px-4 py-2 rounded font-semibold">Out of Stock</span>
-                            </div>
-                        ` : ''}
-                        <button onclick="quickView(${product.id})" class="absolute top-2 right-2 bg-white p-2 rounded-full shadow hover:bg-gray-100 transition">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg mb-2">${product.name}</h3>
-                        <p class="text-gray-600 text-sm mb-2">${product.description}</p>
-                        <div class="flex items-center mb-2">
-                            <div class="text-yellow-400">
-                                ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}
-                            </div>
-                            <span class="text-sm text-gray-500 ml-2">(${product.rating})</span>
-                        </div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span class="text-2xl font-bold text-purple-600">$${product.price}</span>
-                                ${product.originalPrice > product.price ? `
-                                    <span class="text-sm text-gray-500 line-through ml-2">$${product.originalPrice}</span>
-                                ` : ''}
-                            </div>
-                        </div>
-                        <button 
-                            onclick="addToCart(${product.id})" 
-                            class="w-full py-2 ${product.inStock ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-lg font-semibold transition"
-                            ${!product.inStock ? 'disabled' : ''}>
-                            ${product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-            
-            document.getElementById('productCount').textContent = productsToRender.length;
-        }
-
-        // Filter products
-        function filterProducts() {
-            const categories = Array.from(document.querySelectorAll('input[type="checkbox"][value]:checked')).map(cb => cb.value);
-            const brands = Array.from(document.querySelectorAll('input[type="checkbox"][value]:checked')).map(cb => cb.value);
-            const maxPrice = document.getElementById('priceRange').value;
-            const minRating = document.querySelector('input[name="rating"]:checked')?.value || 0;
-
-            filteredProducts = products.filter(product => {
-                const categoryMatch = categories.length === 0 || categories.includes(product.category);
-                const brandMatch = brands.length === 0 || brands.includes(product.brand);
-                const priceMatch = product.price <= maxPrice;
-                const ratingMatch = product.rating >= minRating;
-
-                return categoryMatch && brandMatch && priceMatch && ratingMatch;
-            });
-
-            renderProducts(filteredProducts);
-        }
-
-        // Search products
-        function searchProducts() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const searchResults = products.filter(product => 
-                product.name.toLowerCase().includes(searchTerm) ||
-                product.description.toLowerCase().includes(searchTerm) ||
-                product.brand.toLowerCase().includes(searchTerm)
-            );
-            renderProducts(searchResults);
-        }
-
-        // Sort products
-        function sortProducts() {
-            const sortValue = document.getElementById('sortSelect').value;
-            let sorted = [...filteredProducts];
-
-            switch(sortValue) {
-                case 'price-low':
-                    sorted.sort((a, b) => a.price - b.price);
-                    break;
-                case 'price-high':
-                    sorted.sort((a, b) => b.price - a.price);
-                    break;
-                case 'rating':
-                    sorted.sort((a, b) => b.rating - a.rating);
-                    break;
-                case 'name':
-                    sorted.sort((a, b) => a.name.localeCompare(b.name));
-                    break;
-            }
-
-            renderProducts(sorted);
-        }
-
-        // Reset filters
-        function resetFilters() {
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.querySelectorAll('input[type="radio"]').forEach(rb => rb.checked = false);
-            document.getElementById('priceRange').value = 2000;
-            updatePriceDisplay();
-            filteredProducts = [...products];
-            renderProducts(filteredProducts);
-        }
-
-        // Update price display
-        function updatePriceDisplay() {
-            const value = document.getElementById('priceRange').value;
-            document.getElementById('priceValue').textContent = `$${value}`;
-        }
-
-        // Add to cart
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product || !product.inStock) return;
-
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({...product, quantity: 1});
-            }
-
-            updateCart();
-            
-            // Animate cart badge
-            const badge = document.getElementById('cartCount');
-            badge.classList.add('cart-badge');
-            setTimeout(() => badge.classList.remove('cart-badge'), 500);
-        }
-
-        // Update cart display
-        function updateCart() {
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            const cartCount = document.getElementById('cartCount');
-
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="text-gray-500 text-center">Your cart is empty</p>';
-                cartTotal.textContent = '$0.00';
-                cartCount.textContent = '0';
-                return;
-            }
-
-            cartItems.innerHTML = cart.map(item => `
-                <div class="flex items-center gap-4 mb-4 pb-4 border-b">
-                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded">
-                    <div class="flex-1">
-                        <h4 class="font-semibold">${item.name}</h4>
-                        <p class="text-gray-600">$${item.price}</p>
-                        <div class="flex items-center gap-2 mt-2">
-                            <button onclick="updateQuantity(${item.id}, -1)" class="w-8 h-8 bg-gray-200 rounded hover:bg-gray-300">-</button>
-                            <span class="px-3">${item.quantity}</span>
-                            <button onclick="updateQuantity(${item.id}, 1)" class="w-8 h-8 bg-gray-200 rounded hover:bg-gray-300">+</button>
-                        </div>
-                    </div>
-                    <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            `).join('');
-
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            cartTotal.textContent = `$${total.toFixed(2)}`;
-            
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-        }
-
-        // Update quantity
-        function updateQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            if (!item) return;
-
-            item.quantity += change;
-            
-            if (item.quantity <= 0) {
-                removeFromCart(productId);
-            } else {
-                updateCart();
-            }
-        }
-
-        // Remove from cart
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCart();
-        }
-
-        // Toggle cart sidebar
-        function toggleCart() {
-            const sidebar = document.getElementById('cartSidebar');
-            sidebar.classList.toggle('translate-x-full');
-        }
-
-        // Quick view modal
-        function quickView(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            const modal = document.getElementById('productModal');
-            const content = document.getElementById('modalContent');
-            
-            content.innerHTML = `
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <img src="${product.image}" alt="${product.name}" class="w-full rounded-lg">
-                    </div>
-                    <div>
-                        <h2 class="text-3xl font-bold mb-4">${product.name}</h2>
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-xl">
-                                ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}
-                            </div>
-                            <span class="text-gray-500 ml-2">(${product.rating} rating)</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">${product.description}</p>
-                        <div class="mb-6">
-                            <span class="text-3xl font-bold text-purple-600">$${product.price}</span>
-                            ${product.originalPrice > product.price ? `
-                                <span class="text-xl text-gray-500 line-through ml-2">$${product.originalPrice}</span>
-                                <span class="ml-2 text-green-600 font-semibold">Save ${product.discount}%</span>
-                            ` : ''}
-                        </div>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-semibold mb-2">Key Features:</h4>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li>Premium build quality</li>
-                                    <li>Latest technology</li>
-                                    <li>1-year warranty included</li>
-                                    <li>Free shipping</li>
-                                </ul>
-                            </div>
-                            <button 
-                                onclick="addToCart(${product.id}); closeModal();" 
-                                class="w-full py-3 ${product.inStock ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-lg font-semibold transition"
-                                ${!product.inStock ? 'disabled' : ''}>
-                                ${product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            modal.classList.remove('hidden');
-        }
-
-        // Close modal
-        function closeModal() {
-            document.getElementById('productModal').classList.add('hidden');
-        }
-
-        // Load more products (simulation)
-        function loadMoreProducts() {
-            alert('Loading more products... (This would fetch from API)');
-        }
-
-        // Price range slider
-        document.getElementById('priceRange').addEventListener('input', updatePriceDisplay);
-    </script>
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 rounded-3xl border border-slate-800 bg-slate-900/60 p-10 text-center">
+        <h2 class="text-3xl font-semibold text-white">Need a cleaner RevOps backbone?</h2>
+        <p class="mt-4 text-slate-300">Let’s evaluate your CRM, integrations, and analytics stack together.</p>
+        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold shadow-lg hover:shadow-xl transition">Book a RevOps audit</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
