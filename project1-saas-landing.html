@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudSync Pro - Modern SaaS Platform</title>
+    <title>FlowLaunch - Client Onboarding Automation Suite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes float {
@@ -19,34 +19,35 @@
             100% { background-position: 0% 50%; }
         }
         .gradient-animation {
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background: linear-gradient(-45deg, #2563eb, #7c3aed, #06b6d4, #f97316);
             background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            animation: gradient 18s ease infinite;
         }
         .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body class="bg-slate-950 text-white overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        CloudSync Pro
+                    <span class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                        FlowLaunch
                     </span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="hover:text-blue-400 transition">Features</a>
-                    <a href="#pricing" class="hover:text-blue-400 transition">Pricing</a>
-                    <a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a>
-                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-                    <button class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full hover:shadow-lg transform hover:scale-105 transition">
-                        Get Started Free
+                <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wide">
+                    <a href="#overview" class="hover:text-cyan-300 transition">Overview</a>
+                    <a href="#workflow" class="hover:text-cyan-300 transition">Workflow</a>
+                    <a href="#stack" class="hover:text-cyan-300 transition">Stack</a>
+                    <a href="#timeline" class="hover:text-cyan-300 transition">Timeline</a>
+                    <a href="#results" class="hover:text-cyan-300 transition">Results</a>
+                    <button class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full hover:shadow-lg transform hover:scale-105 transition">
+                        Book a teardown
                     </button>
                 </div>
                 <div class="md:hidden">
@@ -60,348 +61,238 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden glass">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#features" class="block px-3 py-2 hover:bg-white/10 rounded">Features</a>
-                <a href="#pricing" class="block px-3 py-2 hover:bg-white/10 rounded">Pricing</a>
-                <a href="#testimonials" class="block px-3 py-2 hover:bg-white/10 rounded">Testimonials</a>
-                <a href="#contact" class="block px-3 py-2 hover:bg-white/10 rounded">Contact</a>
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#overview" class="block px-3 py-2 rounded hover:bg-white/10">Overview</a>
+                <a href="#workflow" class="block px-3 py-2 rounded hover:bg-white/10">Workflow</a>
+                <a href="#stack" class="block px-3 py-2 rounded hover:bg-white/10">Stack</a>
+                <a href="#timeline" class="block px-3 py-2 rounded hover:bg-white/10">Timeline</a>
+                <a href="#results" class="block px-3 py-2 rounded hover:bg-white/10">Results</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative">
-        <div class="absolute inset-0 gradient-animation opacity-20"></div>
-        
+    <section id="overview" class="min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 gradient-animation opacity-30"></div>
+
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20 -top-48 -left-48 float-animation"></div>
+            <div class="absolute w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl opacity-20 -top-48 -left-48 float-animation"></div>
             <div class="absolute w-96 h-96 bg-purple-500 rounded-full filter blur-3xl opacity-20 -bottom-48 -right-48 float-animation" style="animation-delay: 3s"></div>
-            <div class="absolute w-96 h-96 bg-pink-500 rounded-full filter blur-3xl opacity-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 float-animation" style="animation-delay: 1.5s"></div>
+            <div class="absolute w-96 h-96 bg-orange-500 rounded-full filter blur-3xl opacity-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 float-animation" style="animation-delay: 1.5s"></div>
         </div>
 
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            <div class="inline-block px-4 py-2 bg-blue-500/20 rounded-full mb-6 border border-blue-500/50">
-                <span class="text-blue-400">🚀 New: AI-Powered Analytics Now Available</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                Sync Your Business to the
-                <span class="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                    Cloud Revolution
-                </span>
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Transform your workflow with the most powerful cloud synchronization platform. 
-                Real-time collaboration, infinite scalability, enterprise security.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <button class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition">
-                    Start Free Trial
-                </button>
-                <button class="px-8 py-4 border border-white/30 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-                    Watch Demo
-                </button>
+            <div class="inline-block px-4 py-2 bg-cyan-500/20 rounded-full mb-6 border border-cyan-400/40 text-cyan-200 text-sm uppercase tracking-wide">
+                ⚙️ Client Onboarding Automation for Fractional COO Agencies
             </div>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-                <div>
-                    <div class="text-3xl font-bold text-blue-400">99.9%</div>
-                    <div class="text-gray-400">Uptime SLA</div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Launch new clients
+                <span class="block bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400 bg-clip-text text-transparent">
+                    without manual busywork
+                </span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-slate-200/80 mb-8 max-w-3xl mx-auto">
+                FlowLaunch connects Typeform, HubSpot, ClickUp, and Slack so your team spends less time copying data
+                and more time delivering outcomes. Built end-to-end in four weeks for Jordan Blake's fractional COO collective.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+                <div class="glass rounded-2xl p-6">
+                    <div class="text-4xl font-bold text-cyan-300 mb-2">20 hrs</div>
+                    <div class="text-slate-300 text-sm uppercase tracking-wide">Manual work saved weekly</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-purple-400">50M+</div>
-                    <div class="text-gray-400">Active Users</div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="text-4xl font-bold text-purple-300 mb-2">3× faster</div>
+                    <div class="text-slate-300 text-sm uppercase tracking-wide">Client kickoff speed</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-pink-400">150+</div>
-                    <div class="text-gray-400">Countries</div>
+                <div class="glass rounded-2xl p-6">
+                    <div class="text-4xl font-bold text-orange-300 mb-2">99%</div>
+                    <div class="text-slate-300 text-sm uppercase tracking-wide">Data accuracy across systems</div>
                 </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition">
+                    Watch Workflow Demo
+                </button>
+                <button class="px-8 py-4 border border-white/30 rounded-full font-semibold text-lg hover:bg-white/10 transition">
+                    Download SOP Pack
+                </button>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
+    <!-- Workflow Overview -->
+    <section id="workflow" class="py-20 px-4 bg-slate-900/70">
+        <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Features That
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        Empower You
-                    </span>
+                    A single automation<br class="hidden md:block"/>
+                    <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">covering every handoff</span>
                 </h2>
-                <p class="text-xl text-gray-400">Everything you need to scale your business</p>
+                <p class="text-xl text-slate-300/80 max-w-3xl mx-auto">
+                    FlowLaunch orchestrates 17 automations across five platforms. Each step is observable, documented, and easy for assistants to support.
+                </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                <div class="glass p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-sky-500 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h6l2 3h10v11H3V5z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Lightning Fast</h3>
-                    <p class="text-gray-400">Experience blazing fast synchronization with our optimized infrastructure. Upload and access files in milliseconds.</p>
+                    <h3 class="text-2xl font-semibold mb-3">Capture & Qualify</h3>
+                    <p class="text-slate-300/80">Typeform submissions sync to HubSpot with field validation, duplicate detection, and automatic deal scoring based on services requested.</p>
                 </div>
-
-                <!-- Feature 2 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                <div class="glass p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10m-7 4h7"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Bank-Level Security</h3>
-                    <p class="text-gray-400">Your data is protected with AES-256 encryption, two-factor authentication, and continuous security monitoring.</p>
+                    <h3 class="text-2xl font-semibold mb-3">Activate Projects</h3>
+                    <p class="text-slate-300/80">Closed deals spin up ClickUp folders, assign templated tasks, and populate Notion dashboards with client context pulled from Airtable.</p>
                 </div>
-
-                <!-- Feature 3 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
+                <div class="glass p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.567 3 3.5S13.657 15 12 15s-3-1.567-3-3.5S10.343 8 12 8zm0 0V5m0 10v3m7-7h3m-3 0h-3m-4-7V2m0 20v-3M5 12H2m3 0h3"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">AI-Powered</h3>
-                    <p class="text-gray-400">Smart categorization, automated workflows, and predictive analytics powered by cutting-edge AI technology.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Team Collaboration</h3>
-                    <p class="text-gray-400">Work together seamlessly with real-time editing, comments, and version control for your entire team.</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Smart Insights</h3>
-                    <p class="text-gray-400">Get actionable insights with advanced analytics, custom reports, and data visualization tools.</p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="glass p-8 rounded-2xl hover:transform hover:scale-105 transition">
-                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Integrations</h3>
-                    <p class="text-gray-400">Connect with 1000+ apps including Slack, Google Workspace, Microsoft 365, and more.</p>
+                    <h3 class="text-2xl font-semibold mb-3">Keep Teams Aligned</h3>
+                    <p class="text-slate-300/80">Finance, ops, and delivery leads receive tailored Slack updates. Exceptions trigger Airtable issues and notify the on-call assistant.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
+    <!-- Automation Stack -->
+    <section id="stack" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Simple, Transparent
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        Pricing
-                    </span>
+                    The <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">stack</span> behind FlowLaunch
                 </h2>
-                <p class="text-xl text-gray-400">Choose the plan that fits your needs</p>
+                <p class="text-xl text-slate-300/80">Every tool is connected through documented APIs, error handling, and logging.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Starter Plan -->
-                <div class="glass p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-2">Starter</h3>
-                    <p class="text-gray-400 mb-6">Perfect for individuals</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">$9</span>
-                        <span class="text-gray-400">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            100 GB Storage
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            5 Team Members
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Basic Analytics
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 border border-white/30 rounded-full hover:bg-white/10 transition">
-                        Get Started
-                    </button>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">Make (Integromat)</h3>
+                    <p class="text-slate-300/80 text-sm">Primary scenario orchestrating 11 modules with retries, routers, and Slack notifications.</p>
                 </div>
-
-                <!-- Pro Plan -->
-                <div class="glass p-8 rounded-2xl border-2 border-blue-500 relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-sm">
-                        Most Popular
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                    <p class="text-gray-400 mb-6">For growing teams</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">$29</span>
-                        <span class="text-gray-400">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            1 TB Storage
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            25 Team Members
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Advanced Analytics
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Priority Support
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full hover:shadow-lg transition">
-                        Get Started
-                    </button>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">HubSpot CRM</h3>
+                    <p class="text-slate-300/80 text-sm">Deal pipelines, property enrichment, custom objects for onboarding milestones.</p>
                 </div>
-
-                <!-- Enterprise Plan -->
-                <div class="glass p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
-                    <p class="text-gray-400 mb-6">For large organizations</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">Custom</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Unlimited Storage
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Unlimited Members
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Custom Integrations
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            24/7 Dedicated Support
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 border border-white/30 rounded-full hover:bg-white/10 transition">
-                        Contact Sales
-                    </button>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">ClickUp</h3>
+                    <p class="text-slate-300/80 text-sm">Automated spaces, templates, assignees, and due dates triggered from HubSpot deal stages.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">Airtable & Notion</h3>
+                    <p class="text-slate-300/80 text-sm">Source of truth for client assets, mirrored to Notion portals for leadership visibility.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">Slack</h3>
+                    <p class="text-slate-300/80 text-sm">Channel routing, approvals, and escalations piped in via webhooks.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">Postgres + Supabase</h3>
+                    <p class="text-slate-300/80 text-sm">Stores automation logs, API responses, and trend dashboards consumed in Metabase.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">Segment</h3>
+                    <p class="text-slate-300/80 text-sm">Tracks lifecycle events and surfaces churn risks automatically.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-2">DocuSign</h3>
+                    <p class="text-slate-300/80 text-sm">Contracts trigger the onboarding workflow with signed packet storage and reminders.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
+    <!-- Implementation Timeline -->
+    <section id="timeline" class="py-20 px-4 bg-slate-900/70">
+        <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Loved by
-                    <span class="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                        Teams Worldwide
-                    </span>
-                </h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Delivered in four focused sprints</h2>
+                <p class="text-xl text-slate-300/80">Each sprint included async Loom updates, daily summaries, and a dedicated QA window.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-6 rounded-2xl">
-                    <div class="flex items-center mb-4">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-bold">Sarah Johnson</div>
-                            <div class="text-gray-400 text-sm">CEO at TechStart</div>
-                        </div>
+            <div class="space-y-6">
+                <div class="glass rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Week 1 · Discovery & Architecture</h3>
+                        <p class="text-slate-300/80 mt-2">Process audit, data mapping, and automation blueprint with decision trees.</p>
                     </div>
-                    <p class="text-gray-300">
-                        "CloudSync Pro transformed our workflow completely. The real-time collaboration features saved us countless hours."
-                    </p>
-                    <div class="flex mt-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
+                    <span class="mt-4 md:mt-0 px-4 py-2 rounded-full bg-white/10 text-sm uppercase tracking-wide">18 documented SOPs</span>
                 </div>
-
-                <div class="glass p-6 rounded-2xl">
-                    <div class="flex items-center mb-4">
-                        <img src="https://i.pravatar.cc/150?img=2" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-bold">Michael Chen</div>
-                            <div class="text-gray-400 text-sm">CTO at DataFlow</div>
-                        </div>
+                <div class="glass rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Week 2 · CRM & Data Foundation</h3>
+                        <p class="text-slate-300/80 mt-2">HubSpot objects, deal automation, and data hygiene rules implemented.</p>
                     </div>
-                    <p class="text-gray-300">
-                        "The security features are top-notch. We can finally sync sensitive data without worrying about breaches."
-                    </p>
-                    <div class="flex mt-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
+                    <span class="mt-4 md:mt-0 px-4 py-2 rounded-full bg-white/10 text-sm uppercase tracking-wide">47 custom fields</span>
                 </div>
+                <div class="glass rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Week 3 · Workflow Orchestration</h3>
+                        <p class="text-slate-300/80 mt-2">Make scenarios, ClickUp templating, Slack notifications, and exception logging.</p>
+                    </div>
+                    <span class="mt-4 md:mt-0 px-4 py-2 rounded-full bg-white/10 text-sm uppercase tracking-wide">17 automations</span>
+                </div>
+                <div class="glass rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Week 4 · QA, Training & Launch</h3>
+                        <p class="text-slate-300/80 mt-2">User acceptance testing, fallback plans, Loom library, and go-live support.</p>
+                    </div>
+                    <span class="mt-4 md:mt-0 px-4 py-2 rounded-full bg-white/10 text-sm uppercase tracking-wide">0 critical incidents</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="glass p-6 rounded-2xl">
-                    <div class="flex items-center mb-4">
-                        <img src="https://i.pravatar.cc/150?img=3" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <div class="font-bold">Emily Davis</div>
-                            <div class="text-gray-400 text-sm">Product Manager</div>
+    <!-- Results & Testimonial -->
+    <section id="results" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass rounded-3xl p-10 md:p-14">
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="md:col-span-2">
+                        <h2 class="text-4xl font-bold mb-6">"We now onboard clients in a morning instead of a week."</h2>
+                        <p class="text-slate-200/80 mb-6">“Jordan translated our chaotic process into a calm system. Finance knows when to invoice, delivery sees every handoff, and leadership finally trusts our data. The SOP pack made training our VA effortless.”</p>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://i.pravatar.cc/150?img=45" alt="Client" class="w-16 h-16 rounded-full border-2 border-cyan-400">
+                            <div>
+                                <div class="font-semibold">Renee Marshall</div>
+                                <div class="text-sm text-slate-300/80">Founder · AlignOps Collective</div>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-gray-300">
-                        "Best investment we made this year. The AI features alone increased our productivity by 40%."
-                    </p>
-                    <div class="flex mt-4">
-                        <span class="text-yellow-400">★★★★★</span>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-4xl font-bold text-cyan-300">94%</div>
+                            <div class="text-slate-300/80 text-sm uppercase tracking-wide">Client satisfaction post-onboarding</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-purple-300">12 min</div>
+                            <div class="text-slate-300/80 text-sm uppercase tracking-wide">Average response to new leads</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-orange-300">5 systems</div>
+                            <div class="text-slate-300/80 text-sm uppercase tracking-wide">Synced with parity</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -409,23 +300,23 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-4">
+    <section class="py-20 px-4 bg-slate-900/70">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Transform Your
-                <span class="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                    Business Operations?
+                Ready to audit your
+                <span class="block bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400 bg-clip-text text-transparent">
+                    onboarding workflow?
                 </span>
             </h2>
-            <p class="text-xl text-gray-300 mb-8">
-                Join thousands of companies already using CloudSync Pro
+            <p class="text-xl text-slate-300/80 mb-8">
+                Book a 30-minute teardown. You'll receive an actionable blueprint, tool recommendations, and timelines tailored to your team.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition">
-                    Start Your Free Trial
+                <button class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition">
+                    Schedule a call
                 </button>
                 <button class="px-8 py-4 border border-white/30 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-                    Schedule Demo
+                    View discovery checklist
                 </button>
             </div>
         </div>
@@ -433,43 +324,18 @@
 
     <!-- Footer -->
     <footer class="py-12 px-4 border-t border-white/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4">
-                        CloudSync Pro
-                    </h3>
-                    <p class="text-gray-400">
-                        The future of cloud synchronization
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Product</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Features</a></li>
-                        <li><a href="#" class="hover:text-white transition">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white transition">Security</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">About</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Support</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition">Status</a></li>
-                    </ul>
-                </div>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-slate-300/80">
+            <div>
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-2">
+                    FlowLaunch by Jordan Blake
+                </h3>
+                <p>Automation, CRM architecture, and technical VA support for lean operations teams.</p>
             </div>
-            <div class="text-center pt-8 border-t border-white/10">
-                <p class="text-gray-400">© 2025 CloudSync Pro. All rights reserved.</p>
+            <div class="flex space-x-4 text-sm uppercase tracking-wide">
+                <a href="#overview" class="hover:text-white transition">Overview</a>
+                <a href="#stack" class="hover:text-white transition">Stack</a>
+                <a href="#timeline" class="hover:text-white transition">Timeline</a>
+                <a href="#results" class="hover:text-white transition">Results</a>
             </div>
         </div>
     </footer>
@@ -496,7 +362,7 @@
             const scrolled = window.pageYOffset;
             const parallax = document.querySelector('.gradient-animation');
             if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+                parallax.style.transform = `translateY(${scrolled * 0.4}px)`;
             }
         });
     </script>
