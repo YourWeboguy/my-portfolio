@@ -8,10 +8,34 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%232563eb'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Inter,Arial' font-size='40' font-weight='700' fill='white'%3EHD%3C/text%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.18), transparent 55%),
+                  radial-gradient(circle at 25% 80%, rgba(8, 145, 178, 0.16), transparent 55%),
+                  radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.12), transparent 55%);
+    }
     .noise-bg {
-      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.12) 1px, transparent 0);
-      background-size: 22px 22px;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+    .glow-ring::before {
+      content: "";
+      position: absolute;
+      inset: -16px;
+      border-radius: 9999px;
+      background: conic-gradient(from 140deg, rgba(125, 211, 252, 0.6), rgba(14, 165, 233, 0.2), rgba(129, 140, 248, 0.6));
+      filter: blur(28px);
+      opacity: 0;
+      transition: opacity 300ms ease;
+      z-index: -1;
+    }
+    .glow-ring:hover::before {
+      opacity: 1;
+    }
+    .grid-overlay {
+      background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+      background-size: 38px 38px;
     }
   </style>
 </head>
@@ -33,60 +57,89 @@
 
   <main id="home" class="pb-24">
     <section class="relative overflow-hidden border-b border-slate-800">
-      <div class="absolute inset-0 bg-gradient-to-br from-sky-900 via-slate-950 to-slate-950 opacity-90"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900"></div>
       <div class="absolute inset-0 noise-bg opacity-40"></div>
       <div class="relative max-w-6xl mx-auto px-4 pt-16 pb-24 lg:py-28">
-        <div class="max-w-3xl">
-          <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-sky-300/90 bg-sky-500/10 border border-sky-500/30 px-3 py-1 rounded-full">
-            Automation-first operations partner
-          </p>
-          <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white">
-            Streamlined customer journeys, CRMs, and dashboards without the SaaS sprawl.
-          </h1>
-          <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl">
-            I help fractional leaders and boutique agencies replace duct-taped systems with clean automations. Together we map your processes, wire robust CRM architecture, and ship operator-friendly dashboards that your team can actually maintain.
-          </p>
-          <div class="mt-10 flex flex-col sm:flex-row gap-4">
-            <a href="#work" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold shadow-md hover:shadow-xl transition">
-              View automation snapshots
-            </a>
-            <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-slate-500 text-slate-200 hover:border-white hover:text-white transition">
-              Share your workflow backlog
-            </a>
+        <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+          <div class="lg:col-span-7 max-w-3xl">
+            <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-sky-300/90 bg-sky-500/10 border border-sky-500/30 px-3 py-1 rounded-full">
+              Automation-first operations partner
+            </p>
+            <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white">
+              Streamlined customer journeys, CRMs, and dashboards without the SaaS sprawl.
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl">
+              I help fractional leaders and boutique agencies replace duct-taped systems with clean automations. Together we map your processes, wire robust CRM architecture, and ship operator-friendly dashboards that your team can actually maintain.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+              <a href="#work" class="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold shadow-lg shadow-sky-500/10 hover:translate-y-0.5 hover:shadow-2xl transition glow-ring">
+                View automation snapshots
+              </a>
+              <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-500/70 text-slate-100 hover:border-sky-400 hover:text-white transition">
+                Share your workflow backlog
+              </a>
+            </div>
+            <dl class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+              <div class="border border-slate-800/80 rounded-2xl p-6 bg-slate-900/40">
+                <dt class="text-sm uppercase tracking-wide text-slate-400">Hours saved monthly</dt>
+                <dd class="mt-2 text-3xl font-semibold text-white">80+</dd>
+              </div>
+              <div class="border border-slate-800/80 rounded-2xl p-6 bg-slate-900/40">
+                <dt class="text-sm uppercase tracking-wide text-slate-400">Tools consolidated</dt>
+                <dd class="mt-2 text-3xl font-semibold text-white">11 → 6</dd>
+              </div>
+              <div class="border border-slate-800/80 rounded-2xl p-6 bg-slate-900/40">
+                <dt class="text-sm uppercase tracking-wide text-slate-400">Avg. launch time</dt>
+                <dd class="mt-2 text-3xl font-semibold text-white">28 days</dd>
+              </div>
+            </dl>
           </div>
-          <dl class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-            <div class="border border-slate-800/80 rounded-2xl p-6 bg-slate-900/40">
-              <dt class="text-sm uppercase tracking-wide text-slate-400">Hours saved monthly</dt>
-              <dd class="mt-2 text-3xl font-semibold text-white">80+</dd>
+          <div class="mt-16 lg:mt-0 lg:col-span-5">
+            <div class="relative">
+              <div class="absolute -inset-x-6 -inset-y-8 bg-gradient-to-br from-sky-500/20 via-transparent to-indigo-500/20 blur-3xl"></div>
+              <div class="relative rounded-[32px] border border-slate-800/80 bg-slate-950/60 backdrop-blur-xl p-6 shadow-2xl">
+                <div class="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-slate-400">
+                  <span>Operator HQ</span>
+                  <span>Preview</span>
+                </div>
+                <div class="relative mt-5 aspect-[4/3] rounded-2xl border border-slate-800 bg-gradient-to-tr from-slate-900 via-slate-950 to-sky-950 grid place-items-center overflow-hidden">
+                  <div class="grid-overlay pointer-events-none absolute inset-0 opacity-40"></div>
+                  <div class="relative flex flex-col items-center text-center gap-4 px-10">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">Live build</span>
+                    <p class="text-lg font-semibold text-slate-100">Central ops cockpit featuring daily SLA heatmaps, CRM queue status, and health alerts.</p>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-300">
+                  <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-3 py-1">• HubSpot</span>
+                  <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-3 py-1">• Airtable</span>
+                  <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-3 py-1">• Make</span>
+                  <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-3 py-1">• Supabase</span>
+                </div>
+              </div>
             </div>
-            <div class="border border-slate-800/80 rounded-2xl p-6 bg-slate-900/40">
-              <dt class="text-sm uppercase tracking-wide text-slate-400">Tools consolidated</dt>
-              <dd class="mt-2 text-3xl font-semibold text-white">11 → 6</dd>
-            </div>
-            <div class="border border-slate-800/80 rounded-2xl p-6 bg-slate-900/40">
-              <dt class="text-sm uppercase tracking-wide text-slate-400">Avg. launch time</dt>
-              <dd class="mt-2 text-3xl font-semibold text-white">28 days</dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="py-16 border-b border-slate-800">
       <div class="max-w-6xl mx-auto px-4">
-        <p class="text-sm uppercase tracking-[0.3em] text-slate-400 mb-6">Operators who trust the systems</p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-slate-400 text-sm">
-          <span class="py-3 border border-slate-800/80 rounded-xl text-center">Fractional COO pods</span>
-          <span class="py-3 border border-slate-800/80 rounded-xl text-center">Revenue ops studios</span>
-          <span class="py-3 border border-slate-800/80 rounded-xl text-center">Client success teams</span>
-          <span class="py-3 border border-slate-800/80 rounded-xl text-center">Boutique agencies</span>
-          <span class="py-3 border border-slate-800/80 rounded-xl text-center">Productized services</span>
-          <span class="py-3 border border-slate-800/80 rounded-xl text-center">Startup advisors</span>
+        <p class="text-sm uppercase tracking-[0.35em] text-slate-400 mb-8">Operators who trust the systems</p>
+        <div class="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/40">
+          <div class="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-transparent to-indigo-500/10"></div>
+          <div class="relative flex items-center gap-12 px-8 py-6 text-sm text-slate-300 flex-wrap justify-center">
+            <span class="px-5 py-2 rounded-full border border-slate-700/80 bg-slate-950/70">Fractional COO pods</span>
+            <span class="px-5 py-2 rounded-full border border-slate-700/80 bg-slate-950/70">Revenue ops studios</span>
+            <span class="px-5 py-2 rounded-full border border-slate-700/80 bg-slate-950/70">Client success teams</span>
+            <span class="px-5 py-2 rounded-full border border-slate-700/80 bg-slate-950/70">Boutique agencies</span>
+            <span class="px-5 py-2 rounded-full border border-slate-700/80 bg-slate-950/70">Productized services</span>
+            <span class="px-5 py-2 rounded-full border border-slate-700/80 bg-slate-950/70">Startup advisors</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="services" class="py-20 border-b border-slate-800 bg-slate-950">
+    <section id="services" class="py-20 border-b border-slate-800 bg-slate-950/70">
       <div class="max-w-6xl mx-auto px-4">
         <div class="md:flex md:items-end md:justify-between md:gap-10">
           <div class="max-w-2xl">
@@ -98,7 +151,7 @@
           </a>
         </div>
         <div class="mt-12 grid gap-6 md:grid-cols-2">
-          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 hover:border-sky-400/70 transition">
             <div class="text-xs font-semibold uppercase tracking-widest text-sky-300">Automation Architecture</div>
             <h3 class="mt-4 text-2xl font-semibold text-white">Intake, routing, and follow-up flows</h3>
             <p class="mt-3 text-slate-300">Map every handoff, build with Make/Zapier, and ship human-readable runbooks so assistants can spot breaks quickly.</p>
@@ -108,7 +161,7 @@
               <li>• Slack + email nudges with SLA tracking</li>
             </ul>
           </article>
-          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 hover:border-sky-400/70 transition">
             <div class="text-xs font-semibold uppercase tracking-widest text-sky-300">CRM &amp; Data Hygiene</div>
             <h3 class="mt-4 text-2xl font-semibold text-white">Clean structure that scales with the team</h3>
             <p class="mt-3 text-slate-300">Audit properties, streamline pipelines, and deploy health dashboards that surface blockers before clients notice.</p>
@@ -118,7 +171,7 @@
               <li>• Reporting packs for ops, finance, and leadership</li>
             </ul>
           </article>
-          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 hover:border-sky-400/70 transition">
             <div class="text-xs font-semibold uppercase tracking-widest text-sky-300">Full-Stack Dashboards</div>
             <h3 class="mt-4 text-2xl font-semibold text-white">Operator-ready analytics</h3>
             <p class="mt-3 text-slate-300">Blend Airtable, Notion, Retool, or Supabase to build control centers your leads can maintain long after launch.</p>
@@ -128,7 +181,7 @@
               <li>• Role-based dashboards with approvals built-in</li>
             </ul>
           </article>
-          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 hover:border-sky-400/70 transition">
             <div class="text-xs font-semibold uppercase tracking-widest text-sky-300">Systems Stewardship</div>
             <h3 class="mt-4 text-2xl font-semibold text-white">Retention retainers for fast-moving teams</h3>
             <p class="mt-3 text-slate-300">Monthly support to monitor automations, triage edge cases, and run enhancements without losing momentum.</p>
@@ -149,7 +202,7 @@
           <p class="mt-4 text-slate-300">Deep dives into the systems that replaced spreadsheets, endless follow-ups, and surprise churn.</p>
         </div>
         <div class="mt-12 grid gap-6 md:grid-cols-2">
-          <a href="project1-saas-landing.html" class="group rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col gap-6 hover:border-sky-500/60 transition">
+          <a href="project1-saas-landing.html" class="group rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col gap-6 hover:border-sky-500/70 hover:-translate-y-1 transition-transform transition-colors">
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">Onboarding automation</p>
               <h3 class="mt-3 text-2xl font-semibold text-white group-hover:text-sky-200">FlowLaunch: Intake to delivery in 21 days</h3>
@@ -170,7 +223,7 @@
               </div>
             </dl>
           </a>
-          <a href="project2-ecommerce.html" class="group rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col gap-6 hover:border-sky-500/60 transition">
+          <a href="project2-ecommerce.html" class="group rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col gap-6 hover:border-sky-500/70 hover:-translate-y-1 transition-transform transition-colors">
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">RevOps workspace</p>
               <h3 class="mt-3 text-2xl font-semibold text-white group-hover:text-sky-200">RevBeam: Unified CRM for a hybrid sales team</h3>
@@ -191,7 +244,7 @@
               </div>
             </dl>
           </a>
-          <a href="project3-photography.html" class="group rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col gap-6 hover:border-sky-500/60 transition">
+          <a href="project3-photography.html" class="group rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col gap-6 hover:border-sky-500/70 hover:-translate-y-1 transition-transform transition-colors">
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">Support automation</p>
               <h3 class="mt-3 text-2xl font-semibold text-white group-hover:text-sky-200">RelayDesk: AI triage for customer success</h3>
@@ -212,7 +265,7 @@
               </div>
             </dl>
           </a>
-          <a href="project4-booking.html" class="group rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col gap-6 hover:border-sky-500/60 transition">
+          <a href="project4-booking.html" class="group rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col gap-6 hover:border-sky-500/70 hover:-translate-y-1 transition-transform transition-colors">
             <div>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">Insights portal</p>
               <h3 class="mt-3 text-2xl font-semibold text-white group-hover:text-sky-200">PartnerPulse: Executive dashboards on demand</h3>
@@ -237,14 +290,14 @@
       </div>
     </section>
 
-    <section class="py-20 border-b border-slate-800 bg-slate-950">
+    <section class="py-20 border-b border-slate-800 bg-slate-950/70">
       <div class="max-w-6xl mx-auto px-4">
         <div class="max-w-2xl">
           <h2 class="text-3xl md:text-4xl font-semibold text-white">Ways to engage</h2>
           <p class="mt-4 text-slate-300">Pick the lane that matches your bandwidth and backlog. Every package includes async Loom updates, system documentation, and office hours.</p>
         </div>
         <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <article class="rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col">
+          <article class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col hover:border-sky-400/70 transition">
             <header>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">01 · Systems intensive</p>
               <h3 class="mt-3 text-2xl font-semibold text-white">Blueprint Sprint</h3>
@@ -257,7 +310,7 @@
             </ul>
             <p class="mt-6 text-sm text-slate-400">Starts at $2.8k</p>
           </article>
-          <article class="rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col">
+          <article class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col hover:border-sky-400/70 transition">
             <header>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">02 · Build engagement</p>
               <h3 class="mt-3 text-2xl font-semibold text-white">Automation Buildout</h3>
@@ -270,7 +323,7 @@
             </ul>
             <p class="mt-6 text-sm text-slate-400">Starts at $4.6k</p>
           </article>
-          <article class="rounded-3xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col">
+          <article class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 flex flex-col hover:border-sky-400/70 transition">
             <header>
               <p class="text-xs font-semibold uppercase tracking-widest text-sky-300">03 · Ongoing</p>
               <h3 class="mt-3 text-2xl font-semibold text-white">Ops Steward Retainer</h3>
@@ -295,19 +348,19 @@
             <p class="mt-4 text-slate-300">Every engagement follows a proven loop designed for clarity, measurable ROI, and knowledge transfer.</p>
           </div>
           <div class="mt-10 md:mt-0 grid gap-6 md:grid-cols-2 text-sm text-slate-300">
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">1. Discovery</h3>
               <p class="mt-2">Map your customer journey, constraints, and data landscape. Align on north-star metrics.</p>
             </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">2. Design</h3>
               <p class="mt-2">Draft detailed architecture, permissioning, and monitoring plans before a line of automation is built.</p>
             </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">3. Build &amp; QA</h3>
               <p class="mt-2">Configure tools, write custom scripts when needed, and stress-test edge cases with live data.</p>
             </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">4. Enable &amp; Optimize</h3>
               <p class="mt-2">Document, train, and set up observability so your team can iterate confidently post-launch.</p>
             </div>
@@ -316,7 +369,7 @@
       </div>
     </section>
 
-    <section class="py-20 border-b border-slate-800 bg-slate-950">
+    <section class="py-20 border-b border-slate-800 bg-slate-950/70">
       <div class="max-w-6xl mx-auto px-4">
         <div class="md:flex md:items-center md:justify-between md:gap-16">
           <div class="max-w-xl">
@@ -324,19 +377,19 @@
             <p class="mt-4 text-slate-300">Preferred platforms, integrations, and AI co-pilots that keep client work resilient.</p>
           </div>
           <div class="mt-10 md:mt-0 grid gap-4 md:grid-cols-2 text-sm text-slate-300">
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">Automation</h3>
               <p class="mt-2">Make, Zapier, n8n, custom Apps Script, Slack workflows.</p>
             </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">CRM &amp; Data</h3>
               <p class="mt-2">HubSpot, Close, Airtable, Notion databases, Supabase.</p>
             </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">Enablement</h3>
               <p class="mt-2">Loom, Scribe, Slab, Confluence, Figma for service blueprints.</p>
             </div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-sky-400/70 transition">
               <h3 class="text-lg font-semibold text-white">AI Assist</h3>
               <p class="mt-2">OpenAI, Claude, and GPT-powered QA bots with human-in-the-loop.</p>
             </div>
@@ -347,7 +400,7 @@
 
     <section id="contact" class="py-20">
       <div class="max-w-4xl mx-auto px-4">
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-10">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-10 shadow-2xl shadow-sky-500/10">
           <div class="md:flex md:items-start md:gap-12">
             <div class="md:w-1/2">
               <h2 class="text-3xl font-semibold text-white">Let’s align on your next 90 days</h2>
@@ -371,7 +424,7 @@
                 <label for="focus" class="block text-sm font-medium text-slate-200">What needs attention?</label>
                 <textarea id="focus" name="focus" rows="4" required class="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950/60 px-4 py-3 text-slate-100 focus:border-sky-400 focus:outline-none" placeholder="Intake automation, CRM cleanup, support response times…"></textarea>
               </div>
-              <button type="submit" class="w-full inline-flex justify-center items-center px-6 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500 text-slate-950 font-semibold shadow-lg hover:shadow-xl transition">
+              <button type="submit" class="w-full inline-flex justify-center items-center px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 via-cyan-400 to-indigo-500 text-slate-950 font-semibold shadow-xl hover:shadow-2xl transition-transform hover:-translate-y-0.5">
                 Send the details
               </button>
             </form>

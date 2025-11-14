@@ -6,7 +6,15 @@
   <title>RevBeam • Unified RevOps CRM Workspace</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.14), transparent 55%),
+                  radial-gradient(circle at 70% 25%, rgba(99, 102, 241, 0.16), transparent 60%);
+    }
+    .noise-bg {
+      background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.08) 1px, transparent 0);
+      background-size: 18px 18px;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
@@ -19,27 +27,55 @@
 
   <main class="pb-24">
     <section class="relative overflow-hidden border-b border-slate-800">
-      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-slate-950 to-sky-900 opacity-90"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900"></div>
+      <div class="absolute inset-0 noise-bg opacity-40"></div>
       <div class="relative max-w-5xl mx-auto px-4 py-20">
-        <p class="text-xs font-semibold uppercase tracking-widest text-indigo-300">RevOps CRM transformation</p>
-        <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">RevBeam: A single source of revenue truth</h1>
-        <p class="mt-6 text-lg text-slate-200 max-w-2xl">
-          A hybrid outbound/inbound sales team juggled five disconnected tools with no shared metrics. We consolidated everything into HubSpot, automated commissions, and surfaced a leadership dashboard that finally matched finance’s numbers.
-        </p>
-        <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
-          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
-            <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
-            <dd class="mt-2 text-2xl font-semibold text-white">6 weeks</dd>
+        <div class="lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 items-start">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-indigo-300">RevOps CRM transformation</p>
+            <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">RevBeam: A single source of revenue truth</h1>
+            <p class="mt-6 text-lg text-slate-200 max-w-2xl">
+              A hybrid outbound/inbound sales team juggled five disconnected tools with no shared metrics. We consolidated everything into HubSpot, automated commissions, and surfaced a leadership dashboard that finally matched finance’s numbers.
+            </p>
+            <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">6 weeks</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">22 sellers</dd>
+              </div>
+              <div class="rounded-2xl border border-slate-800/70 bg-slate-900/50 p-5">
+                <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
+                <dd class="mt-2 text-2xl font-semibold text-white">HubSpot · Aircall · Chargebee · Notion</dd>
+              </div>
+            </dl>
           </div>
-          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
-            <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
-            <dd class="mt-2 text-2xl font-semibold text-white">22 sellers</dd>
+          <div class="mt-12 lg:mt-0">
+            <div class="relative">
+              <div class="absolute -inset-x-6 -inset-y-8 bg-gradient-to-tr from-cyan-400/20 via-transparent to-indigo-500/20 blur-3xl"></div>
+              <div class="relative rounded-[28px] border border-slate-800/70 bg-slate-950/60 backdrop-blur-xl p-6 shadow-xl">
+                <div class="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-slate-400">
+                  <span>Revenue Hub</span>
+                  <span>Preview</span>
+                </div>
+                <div class="relative mt-5 aspect-[4/3] rounded-2xl border border-slate-800 bg-gradient-to-tr from-slate-900 via-slate-950 to-indigo-950 grid place-items-center overflow-hidden">
+                  <div class="pointer-events-none absolute inset-0 opacity-35" style="background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px); background-size: 34px 34px;"></div>
+                  <div class="relative max-w-xs text-center space-y-4 px-8">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">Pipeline view</span>
+                    <p class="text-lg font-semibold text-slate-100">Dynamic revenue dashboard layering quota pacing, renewal health, and commission accrual.</p>
+                  </div>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Playbooks</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">MRR trends</span>
+                  <span class="px-3 py-1 rounded-full border border-slate-700/70 bg-slate-900/70">Rep scorecards</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
-            <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
-            <dd class="mt-2 text-2xl font-semibold text-white">HubSpot · Aircall · Chargebee · Notion</dd>
-          </div>
-        </dl>
+        </div>
       </div>
     </section>
 
