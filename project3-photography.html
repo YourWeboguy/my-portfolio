@@ -1,149 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Desk Automation - Intercom to Linear Workflow</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #020617; color: #e2e8f0; }
-        .grid-card { background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(30,41,59,0.85)); border: 1px solid rgba(148,163,184,0.15); border-radius: 24px; padding: 2rem; }
-        .pill { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); border-radius: 9999px; padding: 0.35rem 1rem; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RelayDesk • Support Automation Program</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  </style>
 </head>
-<body class="font-sans antialiased">
-    <header class="relative overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?w=1600&h=1000&fit=crop" alt="Support automation" class="w-full h-full object-cover opacity-30">
+<body class="bg-slate-950 text-slate-100">
+  <header class="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="index.html" class="text-sm uppercase tracking-[0.3em] text-slate-400 hover:text-white transition">← Back to portfolio</a>
+      <span class="text-sm text-slate-400">Case Study</span>
+    </div>
+  </header>
+
+  <main class="pb-24">
+    <section class="relative overflow-hidden border-b border-slate-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-slate-950 to-sky-900 opacity-90"></div>
+      <div class="relative max-w-5xl mx-auto px-4 py-20">
+        <p class="text-xs font-semibold uppercase tracking-widest text-emerald-300">Support automation</p>
+        <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">RelayDesk: AI triage for customer success pods</h1>
+        <p class="mt-6 text-lg text-slate-200 max-w-2xl">
+          A SaaS support org needed to tame a noisy HelpScout queue across three time zones. We introduced intelligent routing, macro recommendations, and executive dashboards that highlight churn risk before tickets escalate.
+        </p>
+        <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
+            <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">5 weeks</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
+            <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">28 specialists</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
+            <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">HelpScout · Airtable · OpenAI · Slack</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">The challenge</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Tickets were routed manually, SLAs slipped on weekends, and leadership had no insight into issue themes. The team wanted guardrails that kept humans in the loop while removing repetitive triage work.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The mission: reduce first-response times, capture richer data on every conversation, and keep the team confident about AI assistance.
+          </p>
         </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-32">
-            <div class="pill mb-6 inline-flex items-center space-x-2 text-blue-200">
-                <span>Intercom → Notion → Linear → Slack</span>
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white max-w-3xl">
-                Route every customer request with zero manual triage
-            </h1>
-            <p class="text-lg md:text-xl text-slate-200/80 mt-6 max-w-3xl">
-                Jordan built an automation hub that categorizes inbound tickets, surfaces account context, and escalates engineering issues automatically. The result: happier customers and a support team freed from repetitive sorting.
-            </p>
-            <div class="grid sm:grid-cols-3 gap-6 mt-10 max-w-3xl">
-                <div class="grid-card">
-                    <div class="text-3xl font-bold text-blue-300">7 min</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-300">Median first response (down from 26)</div>
-                </div>
-                <div class="grid-card">
-                    <div class="text-3xl font-bold text-emerald-300">84%</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-300">Tickets auto-resolved without engineer touch</div>
-                </div>
-                <div class="grid-card">
-                    <div class="text-3xl font-bold text-cyan-300">15</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-300">Automations with full audit logs</div>
-                </div>
-            </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 space-y-4 text-sm text-slate-200">
+          <h3 class="text-sm uppercase tracking-[0.3em] text-slate-400">Success snapshot</h3>
+          <ul class="space-y-3">
+            <li>• 58% faster first response and 39% faster resolution</li>
+            <li>• 72% of inbound tickets handled with AI-suggested macros</li>
+            <li>• CSAT lifted from 4.2 to 4.8 within the first quarter</li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="space-y-24 pb-24">
-        <section class="px-6">
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-                <div class="grid-card">
-                    <h2 class="text-2xl font-semibold text-white mb-4">Signals that triggered the project</h2>
-                    <ul class="space-y-3 text-slate-300/80">
-                        <li>▹ Inbox chaos: three tools, no single queue, and SLA breaches climbing.</li>
-                        <li>▹ Engineers pulled into triage because key account context was missing.</li>
-                        <li>▹ Leadership lacked real-time insight into support load and themes.</li>
-                    </ul>
-                </div>
-                <div class="grid-card">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Automation highlights</h3>
-                    <ul class="space-y-3 text-slate-300/80">
-                        <li>▹ AI tagging on Intercom routes tickets by intent, severity, and account tier.</li>
-                        <li>▹ Notion knowledge base articles suggested instantly inside the Intercom inbox.</li>
-                        <li>▹ Priority issues create Linear bugs with screenshots and Loom recordings.</li>
-                        <li>▹ Slack alerts summarize daily volume, SLA risk, and customers needing follow-up.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-semibold text-white mb-10">The workflow</h2>
-                <div class="grid lg:grid-cols-4 gap-8">
-                    <div class="grid-card">
-                        <h3 class="text-lg font-semibold text-blue-200 mb-2">01 · Intake</h3>
-                        <p class="text-slate-300/80 text-sm">Intercom webhooks pass payloads into AWS Lambda. Messages receive language detection, sentiment scoring, and SLA tagging.</p>
-                    </div>
-                    <div class="grid-card">
-                        <h3 class="text-lg font-semibold text-blue-200 mb-2">02 · Context</h3>
-                        <p class="text-slate-300/80 text-sm">Customer metadata is enriched from Notion, Stripe, and Productboard to give agents a 360° view inside Intercom.</p>
-                    </div>
-                    <div class="grid-card">
-                        <h3 class="text-lg font-semibold text-blue-200 mb-2">03 · Action</h3>
-                        <p class="text-slate-300/80 text-sm">Linear tickets spin up automatically with checklists, owners, and acceptance criteria pre-filled.</p>
-                    </div>
-                    <div class="grid-card">
-                        <h3 class="text-lg font-semibold text-blue-200 mb-2">04 · Insight</h3>
-                        <p class="text-slate-300/80 text-sm">Metrics and themes roll into Metabase dashboards and a weekly Loom recap for leadership.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="px-6">
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-3 gap-10">
-                <div class="lg:col-span-2 grid-card">
-                    <h2 class="text-3xl font-semibold text-white mb-4">Tooling + safeguards</h2>
-                    <ul class="space-y-3 text-slate-300/80">
-                        <li>▹ Make scenarios orchestrate handoffs with path splitting for VIP accounts.</li>
-                        <li>▹ AWS Lambda functions manage message parsing, translation, and Slack formatting.</li>
-                        <li>▹ Rollbar logging captures every payload and retry for compliance reviews.</li>
-                        <li>▹ Notion HQ houses SOPs, escalation trees, and real-time status dashboards.</li>
-                    </ul>
-                </div>
-                <div class="grid-card">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Team enablement</h3>
-                    <ul class="space-y-3 text-slate-300/80">
-                        <li>▹ 9 Loom tutorials showing agents how to handle exceptions.</li>
-                        <li>▹ Slack Q&A channel monitored by Jordan for the first 30 days post-launch.</li>
-                        <li>▹ KPI scorecards embedded in Notion for daily standups.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="px-6">
-            <div class="max-w-4xl mx-auto grid-card">
-                <h2 class="text-3xl font-semibold text-white mb-4">Outcome</h2>
-                <p class="text-slate-200/85 mb-6">“Support finally feels proactive. Engineers get clean briefs, customer success has visibility, and our exec team trusts the numbers. Jordan made a complex system feel intuitive.” — Director of Customer Experience</p>
-                <div class="grid sm:grid-cols-3 gap-4 text-center">
-                    <div>
-                        <div class="text-3xl font-bold text-blue-300">92%</div>
-                        <div class="text-xs uppercase tracking-widest text-slate-300">CSAT after automation</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold text-emerald-300">3</div>
-                        <div class="text-xs uppercase tracking-widest text-slate-300">New SOP playbooks shipped</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold text-cyan-300">0</div>
-                        <div class="text-xs uppercase tracking-widest text-slate-300">Missed enterprise SLAs</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-12 border-t border-white/10">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs uppercase tracking-widest text-slate-400">
-            <span>Support Desk Automation · Jordan Blake</span>
-            <div class="flex space-x-4">
-                <span>Intercom</span>
-                <span>Notion</span>
-                <span>Linear</span>
-                <span>AWS</span>
-            </div>
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <h2 class="text-2xl font-semibold text-white">Automation pillars</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 text-sm text-slate-300">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Smart routing matrix</h3>
+            <p class="mt-3">Airtable houses pod availability and expertise. Make flows assign tickets based on load, priority, and language.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">AI macro assistant</h3>
+            <p class="mt-3">OpenAI analyzes context, suggests macros, and drafts human-ready replies. Agents approve with one click.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Health score dashboards</h3>
+            <p class="mt-3">Airtable + Retool dashboards highlight volume spikes, backlog risk, and accounts requiring executive follow-up.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Knowledge loop</h3>
+            <p class="mt-3">Closed tickets with high effort automatically trigger a Scribe capture and Slab documentation request.</p>
+          </article>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-7 text-sm text-slate-300 space-y-4">
+          <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Operational rhythm</h2>
+          <ul class="space-y-3">
+            <li><span class="text-slate-200">Week 1:</span> Service blueprinting, ticket taxonomy design, and AI risk review.</li>
+            <li><span class="text-slate-200">Week 2:</span> Routing automations, data migrations, and QA safety checks.</li>
+            <li><span class="text-slate-200">Week 3:</span> Macro assistant rollout with shadow mode and human approval loop.</li>
+            <li><span class="text-slate-200">Weeks 4-5:</span> Dashboard launch, training cohorts, and leadership reporting cadences.</li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">Outcomes</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Agents now start each shift with a live queue prioritized by risk. Leadership sees emerging themes and high-effort accounts in a single view, while AI suggestions keep quality consistent without replacing judgment.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The support org now runs a bi-weekly optimization backlog reviewing automations, macros, and documentation to ensure the system keeps evolving with customer needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 rounded-3xl border border-slate-800 bg-slate-900/60 p-10 text-center">
+        <h2 class="text-3xl font-semibold text-white">Want a calmer support queue?</h2>
+        <p class="mt-4 text-slate-300">Let’s co-design automations that respect your team’s expertise.</p>
+        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold shadow-lg hover:shadow-xl transition">Schedule a discovery call</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

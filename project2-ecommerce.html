@@ -1,186 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RevOps CRM Workspace - Airtable Revenue Command Center</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #0f172a; color: #e2e8f0; }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(148, 163, 184, 0.18); }
-        .glow { box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.45); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RevBeam • Unified RevOps CRM Workspace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  </style>
 </head>
-<body class="font-sans antialiased">
-    <nav class="glass fixed top-0 inset-x-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">RevOps CRM Workspace</span>
-                    <span class="px-3 py-1 text-xs uppercase tracking-widest bg-white/10 rounded-full">Case Study</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wide">
-                    <a href="#impact" class="hover:text-sky-300">Impact</a>
-                    <a href="#architecture" class="hover:text-sky-300">Architecture</a>
-                    <a href="#dashboards" class="hover:text-sky-300">Dashboards</a>
-                    <a href="#process" class="hover:text-sky-300">Process</a>
-                    <a href="#learn" class="hover:text-sky-300">Lessons</a>
-                </div>
-            </div>
+<body class="bg-slate-950 text-slate-100">
+  <header class="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
+      <a href="index.html" class="text-sm uppercase tracking-[0.3em] text-slate-400 hover:text-white transition">← Back to portfolio</a>
+      <span class="text-sm text-slate-400">Case Study</span>
+    </div>
+  </header>
+
+  <main class="pb-24">
+    <section class="relative overflow-hidden border-b border-slate-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-slate-950 to-sky-900 opacity-90"></div>
+      <div class="relative max-w-5xl mx-auto px-4 py-20">
+        <p class="text-xs font-semibold uppercase tracking-widest text-indigo-300">RevOps CRM transformation</p>
+        <h1 class="mt-6 text-4xl md:text-5xl font-semibold text-white">RevBeam: A single source of revenue truth</h1>
+        <p class="mt-6 text-lg text-slate-200 max-w-2xl">
+          A hybrid outbound/inbound sales team juggled five disconnected tools with no shared metrics. We consolidated everything into HubSpot, automated commissions, and surfaced a leadership dashboard that finally matched finance’s numbers.
+        </p>
+        <dl class="mt-10 grid gap-6 sm:grid-cols-3 text-sm">
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
+            <dt class="uppercase tracking-wide text-slate-400">Duration</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">6 weeks</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
+            <dt class="uppercase tracking-wide text-slate-400">Team served</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">22 sellers</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5">
+            <dt class="uppercase tracking-wide text-slate-400">Systems</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">HubSpot · Aircall · Chargebee · Notion</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-12 md:grid-cols-[1.1fr_0.9fr]">
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">The challenge</h2>
+          <p class="text-slate-300 leading-relaxed">
+            SDRs worked out of spreadsheets, AEs ran their own Airtable boards, and RevOps stitched numbers together in Looker every Friday. Commission disputes were common and churn signals went unnoticed until renewals were at risk.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            We set out to create a single workspace that connected pipeline, product usage, billing, and renewal health so leadership could coach proactively.
+          </p>
         </div>
-    </nav>
-
-    <header class="relative pt-32 pb-24">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_#1e3a8a,_#0f172a_70%)]"></div>
-        <div class="max-w-5xl mx-auto px-6 relative">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-sky-500/20 border border-sky-400/40 text-sky-200 text-xs uppercase tracking-wider mb-6">Airtable + Stripe + QuickBooks + Softr</span>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Build a revenue engine
-                <span class="block bg-gradient-to-r from-sky-400 via-emerald-400 to-sky-500 bg-clip-text text-transparent">your operators actually trust</span>
-            </h1>
-            <p class="text-xl text-slate-300/90 mb-8 max-w-3xl">
-                Jordan designed and implemented a unified workspace for a 12-person revenue team. Deals, invoices, renewals, and partner programs now live in one Airtable base with automated revenue reporting, reducing finance reconciliation time by 68%.
-            </p>
-            <div class="grid sm:grid-cols-3 gap-6">
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-4xl font-bold text-sky-300 mb-1">$18M</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-300">Pipeline managed quarterly</div>
-                </div>
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-4xl font-bold text-emerald-300 mb-1">4 hrs</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-300">Finance reconciliation (down from 12)</div>
-                </div>
-                <div class="glass rounded-2xl p-6">
-                    <div class="text-4xl font-bold text-teal-300 mb-1">38</div>
-                    <div class="text-xs uppercase tracking-widest text-slate-300">Automated alerts + syncs</div>
-                </div>
-            </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 space-y-4 text-sm text-slate-200">
+          <h3 class="text-sm uppercase tracking-[0.3em] text-slate-400">Success snapshot</h3>
+          <ul class="space-y-3">
+            <li>• Four data sources unified with near real-time syncs</li>
+            <li>• 4× improvement in forecasting accuracy</li>
+            <li>• Commission reconciliation completed in 90 minutes vs. two days</li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="space-y-24 pb-24">
-        <section id="impact" class="px-6">
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-                <div class="glass rounded-3xl p-10 glow">
-                    <h2 class="text-3xl font-semibold mb-6">Revenue visibility unlocked</h2>
-                    <ul class="space-y-4 text-slate-200/80 text-lg">
-                        <li class="flex items-start"><span class="text-emerald-300 mr-3">▹</span> Monthly recurring revenue snapshots automatically reconcile between Stripe, QuickBooks, and Airtable.</li>
-                        <li class="flex items-start"><span class="text-emerald-300 mr-3">▹</span> Renewal opportunities trigger 30/14/7 day task sequences with automated emails to owners.</li>
-                        <li class="flex items-start"><span class="text-emerald-300 mr-3">▹</span> Partner sourced deals are tracked end-to-end with attribution payouts calculated on close.</li>
-                    </ul>
-                </div>
-                <div class="glass rounded-3xl p-10">
-                    <h3 class="text-2xl font-semibold mb-4">Teams served</h3>
-                    <div class="grid sm:grid-cols-2 gap-4 text-sm uppercase tracking-wide">
-                        <div class="border border-white/10 rounded-2xl p-4">Sales Leadership</div>
-                        <div class="border border-white/10 rounded-2xl p-4">Customer Success</div>
-                        <div class="border border-white/10 rounded-2xl p-4">Finance & Billing</div>
-                        <div class="border border-white/10 rounded-2xl p-4">Partner Ops</div>
-                    </div>
-                    <p class="mt-6 text-slate-400 text-sm">“We finally have a single source of truth. Board decks and weekly standups start in Airtable now.” — VP Revenue</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="architecture" class="px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-10">System architecture</h2>
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="glass rounded-2xl p-8">
-                        <h3 class="text-xl font-semibold mb-3">Data layer</h3>
-                        <p class="text-slate-300/90 text-sm">Airtable bases split into Revenue, Finance, and Partners with synced tables and granular permissions.</p>
-                        <ul class="mt-4 space-y-2 text-slate-400 text-sm">
-                            <li>• 12 synced tables</li>
-                            <li>• 5 interface dashboards</li>
-                            <li>• 63 automations</li>
-                        </ul>
-                    </div>
-                    <div class="glass rounded-2xl p-8">
-                        <h3 class="text-xl font-semibold mb-3">Integration layer</h3>
-                        <p class="text-slate-300/90 text-sm">Stripe, QuickBooks, and HubSpot connect via Make scenarios with webhook retries and change logs.</p>
-                        <ul class="mt-4 space-y-2 text-slate-400 text-sm">
-                            <li>• 8 Make scenarios</li>
-                            <li>• Error handling + Slack alerts</li>
-                            <li>• Audit logs stored in Supabase</li>
-                        </ul>
-                    </div>
-                    <div class="glass rounded-2xl p-8">
-                        <h3 class="text-xl font-semibold mb-3">Experience layer</h3>
-                        <p class="text-slate-300/90 text-sm">Softr portal with role-based access for partners, leadership scorecards in Metabase, and Notion SOP hub.</p>
-                        <ul class="mt-4 space-y-2 text-slate-400 text-sm">
-                            <li>• 4 partner tiers</li>
-                            <li>• Auto-generated renewal briefings</li>
-                            <li>• Weekly Loom walkthroughs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="dashboards" class="px-6">
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-                <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1200&h=800&fit=crop" alt="CRM dashboard" class="rounded-3xl shadow-2xl">
-                <div>
-                    <h2 class="text-3xl font-semibold mb-6">Dashboards operators love</h2>
-                    <p class="text-slate-300/90 mb-6">Interactive interfaces provide drill-downs into pipeline health, expansion revenue, and partner performance. Leadership receives scheduled PDFs while reps work in Airtable Interface Designer.</p>
-                    <ul class="space-y-3 text-slate-300/80">
-                        <li>▹ Weighted pipeline by segment with forecast accuracy overlay</li>
-                        <li>▹ NRR tracker showing churn, expansion, and contraction in real time</li>
-                        <li>▹ Partner leaderboard with auto-generated payout summaries</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="process" class="px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-semibold mb-10">Implementation process</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="glass rounded-2xl p-8">
-                        <h3 class="text-xl font-semibold mb-3">Workshops & discovery</h3>
-                        <p class="text-slate-300/90 text-sm">Async loom videos, Miro maps, and working sessions with sales, finance, and partner ops.</p>
-                        <ul class="mt-4 space-y-2 text-slate-400 text-sm">
-                            <li>• 14 stakeholder interviews</li>
-                            <li>• 9 existing systems audited</li>
-                            <li>• 3 future-state process maps</li>
-                        </ul>
-                    </div>
-                    <div class="glass rounded-2xl p-8">
-                        <h3 class="text-xl font-semibold mb-3">Build & launch</h3>
-                        <p class="text-slate-300/90 text-sm">Two sprint cycles covering base design, integrations, dashboards, QA, and training.</p>
-                        <ul class="mt-4 space-y-2 text-slate-400 text-sm">
-                            <li>• 4 training cohorts</li>
-                            <li>• 27 Loom tutorials</li>
-                            <li>• 0 critical bugs post-launch</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="learn" class="px-6">
-            <div class="max-w-5xl mx-auto glass rounded-3xl p-12">
-                <h2 class="text-3xl font-semibold mb-6">What Jordan delivered</h2>
-                <ul class="space-y-4 text-lg text-slate-200/85">
-                    <li>▹ A scalable Airtable architecture with documentation and change management plan</li>
-                    <li>▹ Automated revenue reporting and invoicing checkpoints aligned with finance policies</li>
-                    <li>▹ Partner portal launch kit, including onboarding flows and payout workflows</li>
-                    <li>▹ Process playbook + SOPs enabling the in-house RevOps analyst to maintain the system</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-12 border-t border-white/10">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-sm uppercase tracking-wider text-slate-400">
-            <span>RevOps CRM Workspace · Built by Jordan Blake</span>
-            <div class="flex space-x-4">
-                <a href="#impact" class="hover:text-white">Impact</a>
-                <a href="#architecture" class="hover:text-white">Architecture</a>
-                <a href="#dashboards" class="hover:text-white">Dashboards</a>
-                <a href="#process" class="hover:text-white">Process</a>
-            </div>
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <h2 class="text-2xl font-semibold text-white">What we built</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 text-sm text-slate-300">
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Lifecycle blueprint</h3>
+            <p class="mt-3">Redesigned HubSpot pipelines with clear lifecycle stages, required fields, and stage exit criteria to clean up reporting.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Usage-driven alerts</h3>
+            <p class="mt-3">Chargebee MRR movements and product usage events stream into HubSpot custom objects, driving churn and expansion playbooks.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Commission automation</h3>
+            <p class="mt-3">A Notion control center calculates payouts by role, applies accelerators, and syncs approvals to finance in Slack.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Leadership dashboards</h3>
+            <p class="mt-3">Net-new, expansion, and churn forecasts rendered in HubSpot + Looker Studio with drill-down by pod, industry, and ACV.</p>
+          </article>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/40 p-7 text-sm text-slate-300 space-y-4">
+          <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Timeline &amp; enablement</h2>
+          <ul class="space-y-3">
+            <li><span class="text-slate-200">Weeks 1-2:</span> Process audit, data cleanup, and architecture sign-off.</li>
+            <li><span class="text-slate-200">Week 3:</span> Pipeline migration, integration wiring, and QA scenarios.</li>
+            <li><span class="text-slate-200">Week 4:</span> Dashboard design with RevOps + leadership workshops.</li>
+            <li><span class="text-slate-200">Weeks 5-6:</span> Commission automation, training library, and go-live shadowing.</li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h2 class="text-2xl font-semibold text-white">Outcomes</h2>
+          <p class="text-slate-300 leading-relaxed">
+            Sellers now work from a single HubSpot view with contextual product data. Weekly forecast meetings focus on coaching, not reconciling numbers. Finance receives approved commissions automatically, and leadership trusts the dashboard to plan hiring.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            The client now reviews pipeline health every Monday, churn risk alerts fire within 30 minutes of a usage dip, and the RevOps team reclaimed ten hours per week previously spent on manual reporting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-5xl mx-auto px-4 rounded-3xl border border-slate-800 bg-slate-900/60 p-10 text-center">
+        <h2 class="text-3xl font-semibold text-white">Need a cleaner RevOps backbone?</h2>
+        <p class="mt-4 text-slate-300">Let’s evaluate your CRM, integrations, and analytics stack together.</p>
+        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold shadow-lg hover:shadow-xl transition">Book a RevOps audit</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
